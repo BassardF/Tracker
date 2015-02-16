@@ -6,3 +6,15 @@
 body{
     font-family: mainFont;
 }
+
+/* Navbar */
+
+.navbar-custom{
+	background-color : #E74C3C;
+}
+
+.navbar-icon{
+	width: 25px;
+	height: 25px;
+	margin-right: 2px;
+}
