@@ -1,0 +1,8 @@
+@font-face {
+    font-family: mainFont;
+    src: url(../fonts/Rambla/Rambla-Regular.ttf);
+}
+
+body{
+    font-family: mainFont;
+}
