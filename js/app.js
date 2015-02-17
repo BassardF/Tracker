@@ -12,6 +12,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       }).
+      //stats
+      when('/statistics/performance', {
+        templateUrl: 'views/statistics/statsperformance.html',
+        controller: 'StatsPerformanceCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });
