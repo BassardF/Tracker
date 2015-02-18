@@ -1,0 +1,44 @@
+[{
+	"id" : 1,
+	"name" : "Pull-up",
+	"description" : "Pull up on an high horizontal bar starting with straight arms and finishing with the chin above the bar.",
+	"user_id" : 1,
+	"areas" : [{
+		"id" : 1,
+		"name" : "Upper back",
+		"exercice_id" : 1
+	},{
+		"id" : 2,
+		"name" : "Biceps",
+		"exercice_id" : 1
+	}]
+},{
+	"id" : 2,
+	"name" : "Push-up",
+	"description" : "From touching the ground with the chest to straight arms. Hands shoulder width appart.",
+	"user_id" : 1,
+	"areas" : [{
+		"id" : 3,
+		"name" : "Triceps",
+		"exercice_id" : 1
+	},{
+		"id" : 4,
+		"name" : "Pecs",
+		"exercice_id" : 1
+	}]
+},
+{
+	"id" : 3,
+	"name" : "Squats",
+	"description" : "Classical deep squats, below 90°.",
+	"user_id" : 1,
+	"areas" : [{
+		"id" : 5,
+		"name" : "Quadriceps",
+		"exercice_id" : 1
+	},{
+		"id" : 6,
+		"name" : "Lower back",
+		"exercice_id" : 1
+	}]
+}]
