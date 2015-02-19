@@ -1,0 +1,29 @@
+[{
+	"id" : 1,
+	"count" : 6,
+	"reps" : "5-4-3-5-6-7",
+	"weight" : 45,
+	"date" : "02-02-2015",
+	"exercice_id" : 2
+}, {
+	"id" : 2,
+	"count" : 5,
+	"reps" : "5-3-5-6-7",
+	"weight" : 50,
+	"date" : "02-05-2015",
+	"exercice_id" : 2
+}, {
+	"id" : 3,
+	"count" : 6,
+	"reps" : "5-7-5-5-6-7",
+	"weight" : 60,
+	"date" : "02-09-2015",
+	"exercice_id" : 2
+}, {
+	"id" : 4,
+	"count" : 7,
+	"reps" : "5-4-3-5-6-7-6",
+	"weight" : 65,
+	"date" : "02-12-2015",
+	"exercice_id" : 2
+}]

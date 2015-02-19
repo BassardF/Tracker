@@ -1,8 +1,8 @@
 <navbar></navbar>
 
 <div class="container-fluid" ng-init="init()">
-  <div class="row  no-padding no-margin">
-  	<div class="col-md-3  no-padding no-margin">
+  <div class="row">
+  	<div class="col-md-2">
  		
   		<form>
 			<div class="form-group">
@@ -23,13 +23,22 @@
 				<select type="text" class="form-control" 
 				ng-options="exercice as exercice.name for exercice in exercices | filter:exerciceFilter"
 				ng-model="selectedExercice"
-				ng-change="changeExercice(selectedExercice)"></select>
+				ng-change="changeExercice()"></select>
 			</div>
 		</form>
 
   	</div>
-  	<div class="col-md-9">
+  	<div class="col-md-8">
+  		<div ng-show="selectedExercice">
+		  	<h2>{{selectedExercice.name}}</h2>
+		  	<p><strong>Description : </strong> {{selectedExercice.description}}</p>
+	  	</div>
+
+	  	<canvas id="chart"></canvas>
 
   	</div>
+  	<div class="col-md-2">
+  	</div>
+
   </div>
 </div>

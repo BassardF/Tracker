@@ -12,6 +12,6 @@
     "bootstrap": "*",
     "angular-route": "*",
     "angular-resource" : "*",
-    "chart.js" : "*"
+    "Chart.js" : "*"
   }
 }
