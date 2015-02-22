@@ -2,16 +2,16 @@
 
 <div class="container-fluid" ng-init="init()">
   <div class="row">
-  	<div class="col-md-2">
- 		
+  	<div class="col-md-3">
+ 		<h2>Bounds</h2>
   		<form>
 			<div class="form-group">
 				<label>Start date</label>
-				<input type="text" class="form-control" placeholder="mm-dd-yyyy">
+				<input type="text" ng-model="startDate" class="form-control" placeholder="mm-dd-yyyy">
 			</div>
 			<div class="form-group">
 				<label>End date</label>
-				<input type="text" class="form-control" placeholder="mm-dd-yyyy">
+				<input type="text" ng-model="endDate" class="form-control" placeholder="mm-dd-yyyy">
 			</div>
 			<div class="form-group">
 				<label>Search an exercice</label>
@@ -26,6 +26,31 @@
 				ng-change="changeExercice()"></select>
 			</div>
 		</form>
+		<h2>Displayed variables</h2>
+		<form>
+			<div class="form-group">
+				<div class="checkbox">
+				    <label>
+				      <input ng-model="boxes.rest" ng-change="replot()" type="checkbox"> Rest
+				    </label>
+			  	</div>
+			  	<div class="checkbox">
+				    <label>
+				      <input ng-model="boxes.weight" ng-change="replot()" type="checkbox"> Weight
+				    </label>
+			  	</div>
+			  	<div class="checkbox">
+				    <label>
+				      <input ng-model="boxes.reps" ng-change="replot()" type="checkbox"> Average rep count
+				    </label>
+			  	</div>
+			  	<div class="checkbox">
+				    <label>
+				      <input ng-model="boxes.series" ng-change="replot()" type="checkbox"> Series count
+				    </label>
+			  	</div>
+		 	</div>
+		</form>
 
   	</div>
   	<div class="col-md-8">
@@ -36,9 +61,90 @@
 
 	  	<canvas id="chart"></canvas>
 
+	  	<div class="row">
+  			<div class="col-md-4 small-margin-bottom">
+  				<h3>Legend</h3>
+			  	<div class="grey-left-border">
+				  	<div class="small-padding-left mini-margin-top" ng-repeat="label in labels">
+				  		<div class="inline-block small-square" ng-style="{'background-color':'{{label.color}}'}"></div>
+				  		<div class="inline-block small-margin-left">
+				  			{{label.name}} 
+				  			<span class="grey-color">{{label.unit}}</span>
+				  		</div>
+				  	</div>
+			  	</div>
+  			</div>
+  			<div class="col-md-4 small-margin-bottom">
+  				<h3>General data</h3>
+  				<div class="grey-left-border">
+				  	<div class="small-padding-left mini-margin-top">
+				  		<div>
+					  		<strong>Data count : </strong>
+					  		<div class="inline-block small-margin-left">{{stats.dataCount}}</div>
+				  		</div>
+				  		<hr>
+				  		<div>
+					  		<strong>First record : </strong>
+					  		<div class="inline-block small-margin-left">{{stats.firstRecord}}</div>
+				  		</div>
+				  		<div>
+					  		<strong>Last record : </strong>
+					  		<div class="inline-block small-margin-left">{{stats.lastRecord}}</div>
+				  		</div>
+				  		<hr>
+				  		<div>
+					  		<strong>Average weight : </strong>
+					  		<div class="inline-block small-margin-left">
+					  			{{stats.avgWeight}}
+					  			<span class="grey-color">kg</span>
+					  		</div>
+				  		</div>
+				  		<div>
+					  		<strong>Average series count : </strong>
+					  		<div class="inline-block small-margin-left">{{stats.avgSeries}}</div>
+				  		</div>
+				  		<div>
+					  		<strong>Average reps count : </strong>
+					  		<div class="inline-block small-margin-left">{{stats.avgReps}}</div>
+				  		</div>
+				  		<hr>
+				  		<div>
+					  		<strong>Std weight : </strong>
+					  		<div class="inline-block small-margin-left">{{stats.varWeight}}</div>
+				  		</div>
+				  		<div>
+					  		<strong>Std series count : </strong>
+					  		<div class="inline-block small-margin-left">{{stats.varSeries}}</div>
+				  		</div>
+				  		<div>
+					  		<strong>Std reps count : </strong>
+					  		<div class="inline-block small-margin-left">{{stats.varReps}}</div>
+				  		</div>
+				  	</div>
+			  	</div>
+  			</div>
+  			<div class="col-md-4 small-margin-bottom">
+  				<h3>Extremes</h3>
+  				<div class="grey-left-border">
+				  	<div class="small-padding-left mini-margin-top">
+				  		<div>
+					  		<strong>Heavier : </strong>
+					  		<div class="inline-block small-margin-left">
+					  			{{stats.maxWeight.value}}kg 
+					  			<span class="grey-color">{{stats.maxWeight.date}}</span>
+					  		</div>
+				  		</div>
+				  		<div>
+					  		<strong>Lighter : </strong>
+					  		<div class="inline-block small-margin-left">
+					  			{{stats.minWeight.value}}kg 
+					  			<span class="grey-color">{{stats.minWeight.date}}</span>
+					  		</div>
+				  		</div>
+				  	</div>
+			  	</div>
+  			</div>
+  		</div>
   	</div>
-  	<div class="col-md-2">
-  	</div>
-
   </div>
 </div>
