@@ -16,7 +16,7 @@ app.service('chartService', [function() {
 				labels : labels,
 				datasets : []
 			};
-			for (var i = 0; i < labels.length; i++) {
+			for (var i = 0; i < datas.length; i++) {
 				data.datasets.push({
 		            label: '',
 		            fillColor: getFillColor(i),
