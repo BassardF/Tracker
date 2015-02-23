@@ -1,0 +1,65 @@
+[{
+	"id" : 1,
+	"value" : 15,
+	"user_id" : 1,
+	"measurement" : {
+		"id" : 1,
+		"name" : "biceps"
+	}
+}, {
+	"id" : 2,
+	"value" : 17,
+	"user_id" : 1,
+	"measurement" : {
+		"id" : 1,
+		"name" : "biceps"
+	}
+}, {
+	"id" : 3,
+	"value" : 40,
+	"user_id" : 1,
+	"measurement" : {
+		"id" : 2,
+		"name" : "quadriceps"
+	}
+}, {
+	"id" : 4,
+	"value" : 50,
+	"user_id" : 1,
+	"measurement" : {
+		"id" : 2,
+		"name" : "quadriceps"
+	}
+}, {
+	"id" : 5,
+	"value" : 15,
+	"user_id" : 1,
+	"measurement" : {
+		"id" : 3,
+		"name" : "forearm"
+	}
+}, {
+	"id" : 6,
+	"value" : 17,
+	"user_id" : 3,
+	"measurement" : {
+		"id" : 3,
+		"name" : "forearm"
+	}
+}, {
+	"id" : 7,
+	"value" : 11,
+	"user_id" : 1,
+	"measurement" : {
+		"id" : 4,
+		"name" : "calves"
+	}
+}, , {
+	"id" : 8,
+	"value" : 14,
+	"user_id" : 1,
+	"measurement" : {
+		"id" : 4,
+		"name" : "calves"
+	}
+}]
