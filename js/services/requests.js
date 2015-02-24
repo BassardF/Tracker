@@ -51,3 +51,11 @@ app.factory('BodyFatGoal', ['$resource', function($resource) {
 	});
 
 }]);
+
+app.factory('Measurements', ['$resource', function($resource) {
+
+	return $resource('json/user-measurements/:id', {id : '@id'}, {
+		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/user-measurements/all.json"}
+	});
+
+}]);
