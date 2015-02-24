@@ -15,7 +15,8 @@ app.factory('Users', ['$resource', function($resource) {
 app.factory('SchedulesExercices', ['$resource', function($resource) {
 
 	return $resource('json/users/:user_id/schedules-exercices/exercices/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "json/users/:user_id/schedules-exercices/exercices/:exercice_id/all.json"}
+		all: {method: "GET", isArray: true, url: "json/users/:user_id/schedules-exercices/all.json"},
+		byExercice: {method: "GET", isArray: true, url: "json/users/:user_id/schedules-exercices/exercices/:exercice_id/all.json"}
 	});
 
 }]);

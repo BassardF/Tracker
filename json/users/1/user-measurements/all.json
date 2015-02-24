@@ -5,7 +5,7 @@
 	"user_id" : 1,
 	"measurement" : {
 		"id" : 1,
-		"name" : "biceps"
+		"name" : "Biceps"
 	}
 }, {
 	"id" : 2,
@@ -14,7 +14,7 @@
 	"user_id" : 1,
 	"measurement" : {
 		"id" : 1,
-		"name" : "biceps"
+		"name" : "Biceps"
 	}
 }, {
 	"id" : 3,
@@ -23,7 +23,7 @@
 	"date" : "22-02-2015",	
 	"measurement" : {
 		"id" : 2,
-		"name" : "quadriceps"
+		"name" : "Quadriceps"
 	}
 }, {
 	"id" : 4,
@@ -32,7 +32,7 @@
 	"user_id" : 1,
 	"measurement" : {
 		"id" : 2,
-		"name" : "quadriceps"
+		"name" : "Quadriceps"
 	}
 }, {
 	"id" : 5,
@@ -41,7 +41,7 @@
 	"user_id" : 1,
 	"measurement" : {
 		"id" : 3,
-		"name" : "forearm"
+		"name" : "Forearm"
 	}
 }, {
 	"id" : 6,
@@ -50,7 +50,7 @@
 	"user_id" : 3,
 	"measurement" : {
 		"id" : 3,
-		"name" : "forearm"
+		"name" : "Forearm"
 	}
 }, {
 	"id" : 7,
@@ -59,15 +59,15 @@
 	"user_id" : 1,
 	"measurement" : {
 		"id" : 4,
-		"name" : "calves"
+		"name" : "Calves"
 	}
-}, , {
+}, {
 	"id" : 8,
 	"value" : 14,
 	"date" : "24-02-2015",	
 	"user_id" : 1,
 	"measurement" : {
 		"id" : 4,
-		"name" : "calves"
+		"name" : "Calves"
 	}
 }]

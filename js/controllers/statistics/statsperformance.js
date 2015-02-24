@@ -21,7 +21,7 @@ app.controller('StatsPerformanceCtrl', [
 		};
 
 		$scope.changeExercice = function(){
-			$scope.records = SchedulesExercices.all({
+			$scope.records = SchedulesExercices.byExercice({
 				user_id : 1,
 				exercice_id : $scope.selectedExercice.id
 			}, function(){

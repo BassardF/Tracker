@@ -1,0 +1,70 @@
+<navbar></navbar>
+
+<div class="container-fluid" ng-init="init()">
+  <div class="row">
+  	<div class="col-md-3">
+  		<h2>Measure</h2>
+  		<h2>Bounds</h2>
+  		<form>
+			<div class="form-group">
+				<div class="form-group">
+					<label>Start date</label>
+					<input type="text" ng-model="startDate" class="form-control" placeholder="mm-dd-yyyy">
+				</div>
+				<div class="form-group">
+					<label>End date</label>
+					<input type="text" ng-model="endDate" class="form-control" placeholder="mm-dd-yyyy">
+				</div>
+				<label>Measure</label>
+				<select ng-model="selectedMeasure"
+				ng-options="measure as measure.name for measure in measures"
+				ng-change="plotMeasurements(selectedMeasure)"
+				class="form-control"></select>
+			</div>
+		</form>
+  	</div>
+  	<div class="col-md-8">
+  		<canvas id="chart" class="small-margin-top"></canvas>
+  		<div class="row">
+  			<div class="col-md-4 small-margin-bottom">
+  				<h3>Legend</h3>
+			  	<div class="grey-left-border">
+				  	<div class="small-padding-left mini-margin-top" ng-repeat="label in labels">
+				  		<div class="inline-block small-square" ng-style="{'background-color':'{{label.color}}'}"></div>
+				  		<div class="inline-block small-margin-left">
+				  			{{label.name}}
+				  			<span class="grey-color">{{label.unit}}</span>
+				  		</div>
+				  	</div>
+			  	</div>
+  			</div>
+  			<div class="col-md-4 small-margin-bottom">
+  				<h3>General data</h3>
+  				<div class="grey-left-border">
+				  	<div class="small-padding-left mini-margin-top">
+				  		<div ng-repeat="data in generalData">
+					  		<strong>{{data.title}} : </strong>
+					  		<div class="inline-block small-margin-left">{{data.data}}</div>
+					  		<span class="grey-color">{{data.unit}}</span>
+					  		<hr ng-if="data.hr">
+				  		</div>
+				  	</div>
+			  	</div>
+  			</div>
+  			<div class="col-md-4 small-margin-bottom">
+  				<h3>Extremes</h3>
+  				<div class="grey-left-border">
+				  	<div class="small-padding-left mini-margin-top">
+				  		<div ng-repeat="data in extremeData">
+					  		<strong>{{data.title}} : </strong>
+					  		<div class="inline-block small-margin-left">{{data.data}}</div>
+					  		<span class="grey-color">{{data.unit}}</span>
+					  		<hr ng-if="data.hr">
+				  		</div>
+				  	</div>
+			  	</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+ </div>

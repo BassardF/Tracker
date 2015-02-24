@@ -21,6 +21,14 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         templateUrl: 'views/statistics/statsweightbf.html',
         controller: 'StatsWeightBFCtrl'
       }).
+      when('/statistics/measurements', {
+        templateUrl: 'views/statistics/statsmeasurements.html',
+        controller: 'StatsMeasurementsCtrl'
+      }).
+      when('/statistics/areas', {
+        templateUrl: 'views/statistics/statsareas.html',
+        controller: 'StatsAreasCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });

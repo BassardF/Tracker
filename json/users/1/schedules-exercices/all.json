@@ -1,0 +1,105 @@
+[{
+	"id" : 1,
+	"count" : 6,
+	"reps" : "10-12-13-8-9-10",
+	"weight" : 45,
+	"date" : "02-02-2015",
+	"rest" : 60,
+	"exercice" : {
+		"id" : 1,
+		"name" : "Pull-up",
+		"description" : "blabla",
+		"areas" : [{
+			"id" : 1,
+			"name" : "Upper-back"
+		}, {
+			"id" : 2,
+			"name" : "Biceps"
+		}, {
+			"id" : 3,
+			"name" : "Lower-back"
+		}]
+	}
+}, {
+	"id" : 2,
+	"count" : 6,
+	"reps" : "10-12-13-8-9-10",
+	"weight" : 45,
+	"date" : "02-02-2015",
+	"rest" : 60,
+	"exercice" : {
+		"id" : 2,
+		"name" : "Push-up",
+		"description" : "blabla",
+		"areas" : [{
+			"id" : 4,
+			"name" : "Pecs"
+		}, {
+			"id" : 5,
+			"name" : "Triceps"
+		}]
+	}
+}, {
+	"id" : 3,
+	"count" : 6,
+	"reps" : "10-12-13-8-9-10",
+	"weight" : 45,
+	"date" : "02-02-2015",
+	"rest" : 60,
+	"exercice" : {
+		"id" : 3,
+		"name" : "Benchpress",
+		"description" : "blabla",
+		"areas" : [{
+			"id" : 4,
+			"name" : "Pecs"
+		}, {
+			"id" : 5,
+			"name" : "Triceps"
+		}]
+	}
+}, {
+	"id" : 4,
+	"count" : 6,
+	"reps" : "10-12-13-8-9-10",
+	"weight" : 45,
+	"date" : "02-02-2015",
+	"rest" : 60,
+	"exercice" : {
+		"id" : 4,
+		"name" : "Benchpress",
+		"description" : "blabla",
+		"areas" : [{
+			"id" : 6,
+			"name" : "Quadriceps"
+		}, {
+			"id" : 3,
+			"name" : "Lower-back"
+		}, {
+			"id" : 7,
+			"name" : "Glutes"
+		}]
+	}
+}, {
+	"id" : 5,
+	"count" : 6,
+	"reps" : "10-12-13-8-9-10",
+	"weight" : 45,
+	"date" : "02-02-2015",
+	"rest" : 60,
+	"exercice" : {
+		"id" : 1,
+		"name" : "Pull-up",
+		"description" : "blabla",
+		"areas" : [{
+			"id" : 1,
+			"name" : "Upper-back"
+		}, {
+			"id" : 2,
+			"name" : "Biceps"
+		}, {
+			"id" : 3,
+			"name" : "Lower-back"
+		}]
+	}
+}]
