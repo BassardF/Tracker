@@ -12,8 +12,22 @@
 			<div class="form-group">
 				<label>End date</label>
 				<input type="text" ng-model="endDate" class="form-control" placeholder="mm-dd-yyyy">
-			</div>
+			</div>			
 		</form>
+
+		<h2>Areas</h2>
+		<form>
+			<div class="form-group">
+				<div class="checkbox" ng-repeat="area in areas">
+				    <label>
+				      <input ng-model="area.selected" ng-change="replot()" type="checkbox"> {{area.name}}
+				    </label>
+			  	</div>
+		 	</div>
+		</form>
+  	</div>
+  	<div class="col-md-8">
+  		<canvas id="chart"></canvas>
   	</div>
   </div>
 </div>
