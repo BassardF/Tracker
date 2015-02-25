@@ -28,6 +28,35 @@
   	</div>
   	<div class="col-md-8">
   		<canvas id="chart"></canvas>
+
+  		<div class="row">
+  			<div class="col-md-4 small-margin-bottom">
+  				<h3>General data</h3>
+  				<div class="grey-left-border">
+				  	<div class="small-padding-left mini-margin-top">
+				  		<div ng-repeat="data in generalData">
+					  		<strong>{{data.title}} : </strong>
+					  		<div class="inline-block small-margin-left">{{data.data}}</div>
+					  		<span class="grey-color">{{data.unit}}</span>
+					  		<hr ng-if="data.hr">
+				  		</div>
+				  	</div>
+			  	</div>
+  			</div>
+  			<div class="col-md-4 small-margin-bottom">
+  				<h3>Extremes</h3>
+  				<div class="grey-left-border">
+				  	<div class="small-padding-left mini-margin-top">
+				  		<div ng-repeat="data in extremeData">
+					  		<strong>{{data.title}} : </strong>
+					  		<div class="inline-block small-margin-left">{{data.data}}</div>
+					  		<span class="grey-color">{{data.unit}}</span>
+					  		<hr ng-if="data.hr">
+				  		</div>
+				  	</div>
+			  	</div>
+  			</div>
+  		</div>
   	</div>
   </div>
 </div>
