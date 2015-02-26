@@ -70,10 +70,14 @@ app.controller('StatsAreasCtrl', [
 			}
 
 			var data = chartService.getData(labels, datas);
+			data.datasets[0].strokeColor = chartService.getColor(1);
+			data.datasets[0].pointColor = chartService.getColor(1);
+			data.datasets[0].fillColor = chartService.getFillColor(1);
+			
 			var myRadarChart = new Chart(ctx).Radar(data, {});
 
 			$scope.generalData = [{
-				title : "Data count",
+				title : "Records count",
 				data : $scope.exercices.length,
 				hr : true
 			}, {

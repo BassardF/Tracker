@@ -33,7 +33,12 @@ app.service('chartService', [function() {
 
 		getColor : function(number){
 			return getStrokeColor(number);
+		},
+
+		getFillColor : function(number){
+			return getFillColor(number);
 		}
+
 	}
 
 }]);
