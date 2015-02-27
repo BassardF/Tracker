@@ -32,7 +32,8 @@ app.factory('BodyWeight', ['$resource', function($resource) {
 app.factory('BodyWeightGoal', ['$resource', function($resource) {
 
 	return $resource('json/body-weight-goal/:id', {id : '@id'}, {
-		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-weight-goal/all.json"}
+		lastByUser: {method: "GET", url: "json/users/:user_id/body-weight-goal/last.json"},
+		allByUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-weight-goal/all.json"}
 	});
 
 }]);
@@ -48,7 +49,8 @@ app.factory('BodyFat', ['$resource', function($resource) {
 app.factory('BodyFatGoal', ['$resource', function($resource) {
 
 	return $resource('json/body-fat-goal/:id', {id : '@id'}, {
-		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-fat-goal/all.json"}
+		lastByUser: {method: "GET", url: "json/users/:user_id/body-fat-goal/last.json"},
+		allByUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-fat-goal/all.json"}
 	});
 
 }]);

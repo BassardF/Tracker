@@ -29,6 +29,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         templateUrl: 'views/statistics/statsareas.html',
         controller: 'StatsAreasCtrl'
       }).
+      when('/goals/bodyfat', {
+        templateUrl: 'views/goals/goalbodyfat.html',
+        controller: 'GoalBodyFatController'
+      }).
       otherwise({
         redirectTo: '/'
       });

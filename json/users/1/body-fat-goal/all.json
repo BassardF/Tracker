@@ -1,5 +1,26 @@
 [{
 	"id" : 1,
 	"percent" : 8,
-	"date" : "01-01-2015"
+	"date" : "01-01-2014",
+	"reached" : true
+}, {
+	"id" : 2,
+	"percent" : 9,
+	"date" : "04-01-2014",
+	"reached" : true
+}, {
+	"id" : 3,
+	"percent" : 8,
+	"date" : "07-01-2014",
+	"reached" : false
+}, {
+	"id" : 4,
+	"percent" : 11,
+	"date" : "10-01-2014",
+	"reached" : true
+}, {
+	"id" : 5,
+	"percent" : 10,
+	"date" : "01-01-2015",
+	"reached" : false
 }]

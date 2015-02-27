@@ -1,0 +1,44 @@
+<navbar></navbar>
+
+<div class="container-fluid" ng-init="init()">
+  <div class="row">
+  	<div class="col-md-4 col-md-offset-1">
+	  	<table class="table table-condensed">
+	  		<h3>Previous goals</h3>
+	  		<thead>
+	  			<tr>
+	  				<th><strong>#</strong></th>
+	  				<th><strong>Precent</strong></th>
+	  				<th><strong>Date</strong></th>
+	  				<th><strong>Reached</strong></th>
+	  				<th><strong>Delete</strong></th>
+	  			</tr>
+	  		</thead>
+	  		<tbody>
+	  			<tr ng-repeat="goal in bodyFatGoals">
+	  				<td>{{$index+1}}</td>
+	  				<td>{{goal.percent}}%</td>
+	  				<td>{{goal.date}}</td>
+	  				<td>{{goal.reached}}</td>
+	  				<td>{{goal.reached}}</td>
+	  				<td><button ng-click="delete(goal)" type="submit" class="btn btn-danger btn-xs">Delete</button></td>
+	  			</tr>
+	  		</tbody>
+		</table>
+  	</div>
+  	<div class="col-md-4 col-md-offset-1">
+  		<h3>New goal</h3>
+  		<form>
+		  <div class="form-group">
+		    <label>Percent</label>
+		    <input type="number" class="form-control" ng-model="goal.percent">
+		  </div>
+		  <div class="form-group">
+		    <label>Date</label>
+		    <input type="date" class="form-control" ng-model="goal.date">
+		  </div>
+		  <button ng-click="save()" type="submit" class="btn btn-primary">Create</button>
+		</form>
+  	</div>
+  </div>
+</div>

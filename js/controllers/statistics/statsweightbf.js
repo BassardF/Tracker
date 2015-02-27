@@ -19,9 +19,9 @@ app.controller('StatsWeightBFCtrl', [
 			}
 
 			$scope.bodyWeight = BodyWeight.byUser({user_id : 1}, testPremises);
-			$scope.bodyWeightGoal = BodyWeightGoal.byUser({user_id : 1}, testPremises);
+			$scope.bodyWeightGoal = BodyWeightGoal.lastByUser({user_id : 1}, testPremises);
 			$scope.bodyFat = BodyFat.byUser({user_id : 1}, testPremises);
-			$scope.bodyFatGoal = BodyFatGoal.byUser({user_id : 1}, testPremises);
+			$scope.bodyFatGoal = BodyFatGoal.lastByUser({user_id : 1}, testPremises);
 		};
 
 		function testPremises(){
@@ -50,7 +50,7 @@ app.controller('StatsWeightBFCtrl', [
 			for (var i = 0; i < $scope.bodyWeight.length; i++) {
 				var record = $scope.bodyWeight[i];
 				labels.push(record.date);
-				datas[0].push($scope.bodyWeightGoal[0].weight);
+				datas[0].push($scope.bodyWeightGoal.weight);
 				datas[1].push(record.weight);
 				avg += +record.weight;
 				max = +record.weight > max ? +record.weight : max;
@@ -79,11 +79,11 @@ app.controller('StatsWeightBFCtrl', [
 
 			$scope.generalData = [{
 				title : "Goal weight",
-				data : $scope.bodyWeightGoal[0].weight,
+				data : $scope.bodyWeightGoal.weight,
 				unit : "kg"
 			},{
 				title : "Goal date",
-				data : $scope.bodyWeightGoal[0].date,
+				data : $scope.bodyWeightGoal.date,
 				hr : true
 			},{
 				title : "Data count",
@@ -120,7 +120,7 @@ app.controller('StatsWeightBFCtrl', [
 				var record = $scope.bodyFat[i];
 				labels.push(record.date);
 				datas[0].push(record.percent);
-				datas[1].push($scope.bodyFatGoal[0].percent);
+				datas[1].push($scope.bodyFatGoal.percent);
 				avg += +record.percent;
 				max = +record.percent > max ? +record.percent : max;
 				min = +record.percent > min ? min : +record.percent;
@@ -148,11 +148,11 @@ app.controller('StatsWeightBFCtrl', [
 
 			$scope.generalData = [{
 				title : "Goal body fat",
-				data : $scope.bodyFatGoal[0].percent,
+				data : $scope.bodyFatGoal.percent,
 				unit : "%"
 			},{
 				title : "Goal date",
-				data : $scope.bodyFatGoal[0].date,
+				data : $scope.bodyFatGoal.date,
 				hr : true
 			},{
 				title : "Data count",
