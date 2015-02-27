@@ -1,10 +1,11 @@
 @font-face {
     font-family: mainFont;
-    src: url(../fonts/Rambla/Rambla-Regular.ttf);
+    src: url(../fonts/raleway/Raleway-Medium.ttf);
 }
 
 body{
     font-family: mainFont;
+    font-size: 12px;
 }
 
 hr{

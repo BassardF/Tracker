@@ -24,7 +24,8 @@ app.factory('SchedulesExercices', ['$resource', function($resource) {
 app.factory('BodyWeight', ['$resource', function($resource) {
 
 	return $resource('json/body-weight/:id', {id : '@id'}, {
-		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-weight/all.json"}
+		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-weight/all.json"},
+		lastByUser: {method: "GET", url: "json/users/:user_id/body-weight/last.json"}
 	});
 
 }]);
@@ -41,6 +42,7 @@ app.factory('BodyWeightGoal', ['$resource', function($resource) {
 app.factory('BodyFat', ['$resource', function($resource) {
 
 	return $resource('json/body-fat/:id', {id : '@id'}, {
+		lastByUser: {method: "GET", url: "json/users/:user_id/body-fat/last.json"},
 		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-fat/all.json"}
 	});
 
@@ -58,6 +60,7 @@ app.factory('BodyFatGoal', ['$resource', function($resource) {
 app.factory('Measurements', ['$resource', function($resource) {
 
 	return $resource('json/user-measurements/:id', {id : '@id'}, {
+		all: {method: "GET", isArray: true, url: "json/users/:user_id/measurements/all.json"},
 		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/user-measurements/all.json"}
 	});
 
