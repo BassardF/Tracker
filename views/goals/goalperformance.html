@@ -2,14 +2,13 @@
 
 <div class="container-fluid" ng-init="init()">
 	<div class="row">
-		<div class="col-md-5 col-md-offset-1">
+		<div class="col-md-4 col-md-offset-1">
 			<form>
 			  <h3>Exercice</h3>
 			  <div class="form-group">
 			    <select class="form-control" 
 			    ng-model="exercice"
-			    ng-options="exercice as exercice.name for exercice in exercices"
-			    ng-change="changeExercice(exercice)"></select>
+			    ng-options="exercice as exercice.name for exercice in exercices"></select>
 			  </div>
 			  <div ng-show="exercice">
 				<h3>Current Exercice</h3>
@@ -29,7 +28,7 @@
 			</div>
 			</form>
 		</div>
-		<div class="col-md-5 col-md-offset-1">
+		<div class="col-md-4 col-md-offset-2">
 			<h3>New goal</h3>
 	  		<form>
 			  <div class="form-group">

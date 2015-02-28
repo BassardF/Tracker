@@ -15,15 +15,11 @@ app.controller('GoalPerformanceController', [
 			});
 		};
 
-		$scope.changeExercice = function(exercice){
-
-		};
-
 		$scope.$watch('exercice', function(newValue, oldValue) {
 			if(newValue){
 				for (var i = 0; i < $scope.performanceGoal.length; i++) {
 					var goal = $scope.performanceGoal[i];
-					if(goal.exercice_id === goal.id){
+					if(goal.exercice_id === newValue.id){
 						$scope.selectedGoal = goal;
 					}
 				}

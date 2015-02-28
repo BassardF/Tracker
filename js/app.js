@@ -12,7 +12,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       }).
-      //stats
       when('/statistics/performance', {
         templateUrl: 'views/statistics/statsperformance.html',
         controller: 'StatsPerformanceCtrl'
@@ -44,6 +43,18 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       when('/goals/performance', {
         templateUrl: 'views/goals/goalperformance.html',
         controller: 'GoalPerformanceController'
+      }).
+      when('/measures/measurements', {
+        templateUrl: 'views/measures/measuremeasurements.html',
+        controller: 'MeasureMeasurementsController'
+      }).
+      when('/measures/weight', {
+        templateUrl: 'views/measures/measureweight.html',
+        controller: 'MeasureWeightController'
+      }).
+      when('/measures/bodyfat', {
+        templateUrl: 'views/measures/measurebodyfat.html',
+        controller: 'MeasureBodyFatController'
       }).
       otherwise({
         redirectTo: '/'
