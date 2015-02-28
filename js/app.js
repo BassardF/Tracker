@@ -41,6 +41,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         templateUrl: 'views/goals/goalmeasurements.html',
         controller: 'GoalMeasurementsController'
       }).
+      when('/goals/performance', {
+        templateUrl: 'views/goals/goalperformance.html',
+        controller: 'GoalPerformanceController'
+      }).
       otherwise({
         redirectTo: '/'
       });

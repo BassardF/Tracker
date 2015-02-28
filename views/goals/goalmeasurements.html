@@ -2,8 +2,35 @@
 
 <div class="container-fluid" ng-init="init()">
 	<div class="row">
-		<div class="col-md-6">
-
+		<div class="col-md-5 col-md-offset-1">
+			<form>
+			  <h3>Measurements</h3>
+			  <div class="form-group">
+			    <select class="form-control" 
+			    ng-model="measurement"
+			    ng-options="measurement as measurement.name for measurement in measurements"
+			    ng-change="changeMeasurements(measurement)"></select>
+			  </div>
+			</form>
+			<div ng-show="selectedGoal">
+				<h3>Current goal</h3>
+				<div class="grey-left-border">
+		  			<div class="small-margin-left"><strong>value : </strong>{{selectedGoal.value}}<span class="grey-color">%</span></div>
+		  			<div class="small-margin-left"><strong>Date : </strong>{{selectedGoal.date}}</div>
+		  		</div>
+		  		<h3>New goal</h3>
+		  		<form>
+				  <div class="form-group">
+				    <label>Value</label>
+				    <input type="number" class="form-control" ng-model="newGoal.value">
+				  </div>
+				  <div class="form-group">
+				    <label>Date</label>
+				    <input type="date" class="form-control" ng-model="newGoal.date">
+				  </div>
+				  <button ng-click="save()" type="submit" class="btn btn-primary btn-sm">Create</button>
+				</form>
+			</div>
 		</div>
 		<div class="col-md-6">
 			<div id="raphael-canevas"></div>

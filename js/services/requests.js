@@ -65,3 +65,19 @@ app.factory('Measurements', ['$resource', function($resource) {
 	});
 
 }]);
+
+app.factory('MeasurementsGoal', ['$resource', function($resource) {
+
+	return $resource('json/user-measurements-goals/:id', {id : '@id'}, {
+		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/measurements-goals/all.json"}
+	});
+
+}]);
+
+app.factory('PerformanceGoal', ['$resource', function($resource) {
+
+	return $resource('json/user-performance-goals/:id', {id : '@id'}, {
+		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/performance-goals/all.json"}
+	});
+
+}]);
