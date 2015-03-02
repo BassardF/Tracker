@@ -84,10 +84,16 @@ hr{
 /* Exercices exercice */
 
 #exercices-exercices-pic-pack{
-	width : 400;
-	height : 400;
+	width : 405px;
+	height : 400px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #exercices-exercices-pic-pack div{
 	display: inline-block;
+}
+
+.obliques{
+	fill : red;
 }

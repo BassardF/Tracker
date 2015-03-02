@@ -81,3 +81,11 @@ app.factory('PerformanceGoal', ['$resource', function($resource) {
 	});
 
 }]);
+
+app.factory('Areas', ['$resource', function($resource) {
+
+	return $resource('json/areas/:id', {id : '@id'}, {
+		all: {method: "GET", isArray: true, url: "json/areas/all.json"}
+	});
+
+}]);
