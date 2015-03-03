@@ -90,14 +90,7 @@ hr{
 	margin-right: auto;
 }
 
-#exercices-exercices-pic-pack div{
-	display: inline-block;
-}
-
-.obliques{
-	fill : red;
-}
-
-.transverses{
-	fill : red;	
+#exercices-exercices-pic-pack .svg{
+	width : 200px;
+	height : 400px;
 }

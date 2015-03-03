@@ -5,26 +5,44 @@ app.controller('ExerciceExercicesController', [
 
 	function ($scope, Areas) {
 
-		$scope.init = function(){			
-			draw();
-			$scope.areas = Areas.all();
+		$scope.init = function(){
+			$scope.areas = Areas.all(setStyles);
+			imgToSvg();
 		};
 
-		function draw(){
-			var height = 400,
-				width = 200,
-				paper1 = new Raphael(document.getElementById('raphael-canevas-front'), width, height),
-				image1 = paper1.image("img/svg/body-front.svg", 0, 0, width, height),
-				paper2 = new Raphael(document.getElementById('raphael-canevas-back'), width, height),
-				image2 = paper2.image("img/svg/body-back.svg", 0, 0, width, height);
+		$scope.selectArea = function(area){
+			
+		};
 
-			$scope.front = paper1;
-			$scope.back = paper2;
+		function imgToSvg(){
+			jQuery('img.svg').each(function(){
+			var $img = jQuery(this);
+			var imgID = $img.attr('id');
+			var imgClass = $img.attr('class');
+			var imgURL = $img.attr('src');
+
+			jQuery.get(imgURL, function(data) {
+				var $svg = jQuery(data).find('svg');
+
+				if(typeof imgID !== 'undefined') {
+					$svg = $svg.attr('id', imgID);
+				}
+				if(typeof imgClass !== 'undefined') {
+					$svg = $svg.attr('class', imgClass+' replaced-svg');
+				}
+				$svg = $svg.removeAttr('xmlns:a');
+				$img.replaceWith($svg);
+			}, 'xml');
+
+			});
 		}
 
-		$scope.draw = function(area){
-			console.log(area);
-			$scope.front.path(area.path).attr({"type":"path","stroke":"blue","fill":"red"});
-		};
-
+		function setStyles(){
+			for (var i = 0; i < $scope.areas.length; i++) {
+				var theClass = $scope.areas[i].class;
+				$("." + theClass).hover(function(){
+					$(this).toggleClass('selected_area');
+				});
+			}
+		}
 }]);
