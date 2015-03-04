@@ -53,6 +53,16 @@ hr{
 	color: #ccc;
 }
 
+.selectable:hover{
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+.selected-behavour{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 /* Navbar */
 
 .navbar-custom{
@@ -95,8 +105,11 @@ hr{
 	height : 400px;
 }
 
-/* SGV */
+.svg .selectable_area:hover{
+	fill : red;
+	cursor: pointer;
+}
 
-.pecs:hover, .svg .shoulders:hover, .svg .biceps:hover, .svg .abs:hover, .svg .quadriceps:hover, .svg .calves:hover, .svg .traps:hover, .svg .forearms:hover, .svg .transverses:hover,  .svg .obliques:hover{
+.svg .selected_area{
 	fill : red;
 }

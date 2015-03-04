@@ -2,16 +2,29 @@
 
 <div class="container-fluid" ng-init="init()">
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-3">
+			<h2>Affected areas</h2>
+			<div class="grey-left-border small-margin-left small-padding-left">
+				<div class="selectable"
+				ng-class="{'selected-behavour': area.selected}" 
+				ng-repeat="area in areas" 
+				ng-click="selectArea(area)">{{area.name}}</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+
 			<form>
-			  <h3>Areas</h3>
-			  <div class="form-group">
-			    <select class="form-control" 
-			    ng-model="area"
-			    ng-options="area as area.id for area in areas"
-			    ng-change="selectArea(area)"></select>
-			  </div>
+		  		<div class="form-group">
+					<label>Name</label>
+					<input type="text" class="form-control" ng-model="exercice.name">
+		  		</div>
+		  		<div class="form-group">
+					<label>Description</label>
+					<input type="text" class="form-control" ng-model="exercice.description">
+		  		</div>
+		  		<button ng-click="save()" type="submit" class="btn btn-primary btn-sm">Create</button>
 			</form>
+
 		</div>
 		<div class="col-md-6">
 			<div id="exercices-exercices-pic-pack">

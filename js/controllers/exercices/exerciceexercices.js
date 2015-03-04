@@ -2,16 +2,25 @@ app.controller('ExerciceExercicesController', [
 	'$scope',
 
 	'Areas',
+	'Exercices',
 
-	function ($scope, Areas) {
+	function ($scope, Areas, Exercices) {
 
 		$scope.init = function(){
-			$scope.areas = Areas.all();
+			$scope.exercice = new Exercices();
+			$scope.loaded = 0;
+			$scope.areas = Areas.all(setStyles);
 			imgToSvg();
 		};
 
 		$scope.selectArea = function(area){
-			
+			area.selected = !area.selected;
+			var current = $(".svg ." + area.class).attr("class");
+			if(area.selected){
+				$(".svg ." + area.class).attr("class", "selected_area " + current);
+			} else {
+				$(".svg ." + area.class).attr("class", current.replace("selected_area ", ""));
+			}
 		};
 
 		function imgToSvg(){
@@ -32,17 +41,55 @@ app.controller('ExerciceExercicesController', [
 				}
 				$svg = $svg.removeAttr('xmlns:a');
 				$img.replaceWith($svg);
+				setStyles();
 			}, 'xml');
 
 			});
 		}
 
 		function setStyles(){
-			for (var i = 0; i < $scope.areas.length; i++) {
-				var theClass = $scope.areas[i].class;
-				$("." + theClass).hover(function(){
-					$(this).toggleClass('selected_area');
-				});
+			if(++$scope.loaded === 3){
+				for (var i = 0; i < $scope.areas.length; i++) {
+					var theClass = $scope.areas[i].class;
+					var current = $(".svg ." + theClass).attr("class");
+					if(current.indexOf("selectable_area") === -1){
+						$(".svg ." + theClass).attr("class", "selectable_area " + current);
+					}
+					$(".svg ." + theClass).click(function(){
+						var areaClass = this.className.animVal.replace("selectable_area ", "").replace("selected_area ", "");
+						var area = getAreaFromClass(areaClass);
+						$scope.selectArea(area);
+						$scope.$apply();
+					});
+				}
 			}
+		}
+
+		function getAreaFromClass(areaClass){
+			for (var i = 0; i < $scope.areas.length; i++) {
+				if($scope.areas[i].class === areaClass){
+					return $scope.areas[i];
+				}
+			}
+		}
+
+		$scope.save = function(){
+			$scope.exercice.areas = [];
+			for (var i = 0; i < $scope.areas.length; i++) {
+				if($scope.areas[i].selected){
+					$scope.exercice.areas.push($scope.areas[i].id);
+				}
+			}
+			$scope.exercice.$save();
+			clearData();
+		};
+
+		function clearData(){
+			for (var i = 0; i < $scope.areas.length; i++) {
+				if($scope.areas[i].selected){
+					$scope.selectArea($scope.areas[i]);
+				}
+			}
+			$scope.exercice = new Exercices();
 		}
 }]);
