@@ -94,3 +94,9 @@ hr{
 	width : 200px;
 	height : 400px;
 }
+
+/* SGV */
+
+.pecs:hover, .svg .shoulders:hover, .svg .biceps:hover, .svg .abs:hover, .svg .quadriceps:hover, .svg .calves:hover, .svg .traps:hover, .svg .forearms:hover, .svg .transverses:hover,  .svg .obliques:hover{
+	fill : red;
+}

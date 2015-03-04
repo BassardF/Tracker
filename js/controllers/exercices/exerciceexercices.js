@@ -6,7 +6,7 @@ app.controller('ExerciceExercicesController', [
 	function ($scope, Areas) {
 
 		$scope.init = function(){
-			$scope.areas = Areas.all(setStyles);
+			$scope.areas = Areas.all();
 			imgToSvg();
 		};
 
