@@ -3,8 +3,49 @@
 <div class="container-fluid" ng-init="init()">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-1">
+			<form>
+		  		<div class="form-group">
+					<label>Name</label>
+					<input type="text" class="form-control" ng-model="workout.name">
+		  		</div>
+		  		<div class="form-group">
+					<label>Description</label>
+					<input type="text" class="form-control" ng-model="workout.description">
+		  		</div>
+		  		<div class="form-group">
+					<label>Goal</label>
+					<input type="text" class="form-control" ng-model="workout.goal">
+		  		</div>
+		  		<button ng-click="save()" type="submit" class="btn btn-primary btn-sm">Create</button>
+			</form>
 		</div>
-		<div class="col-md-4 col-md-offset-1">
+		<div class="col-md-4 col-md-offset-2">
+			<div ng-repeat="exercice in workout.exercices">
+				<h2>{{exercice.number}}</h2>
+				<form>
+			  		<div class="form-group">
+						<label>Exercice</label>
+						<select ng-options="exercice.id as exercice.name for exercice in exercices" class="form-control" ng-model="exercice.exercice_id"></select>
+			  		</div>
+			  		<div class="form-group">
+						<label>Rest</label>
+						<input type="number" class="form-control" ng-model="workout.description">
+			  		</div>
+			  		<div class="form-group">
+						<label>Count</label>
+						<input type="number" class="form-control" ng-model="workout.goal">
+			  		</div>
+			  		<div class="form-group">
+						<label>Weight</label>
+						<input type="number" class="form-control" ng-model="workout.goal">
+			  		</div>
+			  		<div class="form-group">
+						<label>Reps</label>
+						<input type="number" class="form-control" ng-model="workout.goal">
+			  		</div>
+				</form>
+			</div>
+			<button ng-click="addExercice()" type="submit" class="btn btn-default btn-sm">Add workout</button>
 		</div>
 	</div>
 </div>
