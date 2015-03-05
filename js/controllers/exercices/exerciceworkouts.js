@@ -16,9 +16,20 @@ app.controller('ExerciceWorkoutsController', [
 		};
 
 		$scope.addExercice = function(){
+			for (var i = 0; i < $scope.workout.exercices.length; i++) {
+				$scope.workout.exercices[i].selected = false;
+			}
 			$scope.workout.exercices.push({
-				number : $scope.workout.exercices.length + 1
+				number : $scope.workout.exercices.length + 1,
+				selected : true
 			});
 		};
+
+		$scope.selectExercice = function(exercice){
+			for (var i = 0; i < $scope.workout.exercices.length; i++) {
+				$scope.workout.exercices[i].selected = false;
+			}
+			exercice.selected = true;
+		}
 
 }]);

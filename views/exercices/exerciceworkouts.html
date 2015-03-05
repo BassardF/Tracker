@@ -19,8 +19,17 @@
 		  		<button ng-click="save()" type="submit" class="btn btn-primary btn-sm">Create</button>
 			</form>
 		</div>
-		<div class="col-md-4 col-md-offset-2">
+		<div class="col-md-1 col-md-offset-1">
 			<div ng-repeat="exercice in workout.exercices">
+				<div class="exercice-button" ng-class="{'selected-exercice-button': exercice.selected}" ng-click="selectExercice(exercice)">
+						{{$index + 1}}	
+				</div>
+				<div class="vertical-join"></div>
+			</div>
+			<img ng-click="addExercice()" class="size-40x40 hover-cursor-pointer centered-non-block" src="img/svg/add.svg">
+		</div>
+		<div class="col-md-4">
+			<div ng-repeat="exercice in workout.exercices" ng-show="exercice.selected">
 				<h2>{{exercice.number}}</h2>
 				<form>
 			  		<div class="form-group">
@@ -45,7 +54,6 @@
 			  		</div>
 				</form>
 			</div>
-			<button ng-click="addExercice()" type="submit" class="btn btn-default btn-sm">Add workout</button>
 		</div>
 	</div>
 </div>

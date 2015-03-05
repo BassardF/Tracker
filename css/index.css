@@ -25,6 +25,12 @@ hr{
 	display: inline-block;
 }
 
+.centered-non-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 .grey-left-border{
 	border-left: solid 1px #ccc;
 }
@@ -63,6 +69,14 @@ hr{
 	text-decoration: underline;
 }
 
+.size-40x40{
+	width: 40px;
+	height: 40px;
+}
+
+.hover-cursor-pointer:hover{
+	cursor: pointer;
+}
 /* Navbar */
 
 .navbar-custom{
@@ -112,4 +126,39 @@ hr{
 
 .svg .selected_area{
 	fill : red;
+}
+
+/* Exercice workout */
+
+.exercice-button{
+	line-height: 34px;
+	width: 40px;
+	height: 40px;
+	vertical-align: middle;
+	font-size: 20px;
+	border : solid 2px black;
+	border-radius: 50px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.exercice-button:hover{
+	color : #E74C3C;
+	border-color: #E74C3C;
+	cursor: pointer;
+}
+
+.vertical-join{
+	height : 20px;
+	width: 2px;
+	background-color: black;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.selected-exercice-button{
+	color : white;
+	background-color: #E74C3C;
+	border-color: #E74C3C;
 }
