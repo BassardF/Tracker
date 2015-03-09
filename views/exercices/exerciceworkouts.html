@@ -38,19 +38,19 @@
 			  		</div>
 			  		<div class="form-group">
 						<label>Rest</label>
-						<input type="number" class="form-control" ng-model="workout.description">
+						<input type="number" class="form-control" ng-model="exercice.rest">
 			  		</div>
 			  		<div class="form-group">
 						<label>Count</label>
-						<input type="number" class="form-control" ng-model="workout.goal">
+						<input type="number" class="form-control" ng-model="exercice.count">
 			  		</div>
 			  		<div class="form-group">
 						<label>Weight</label>
-						<input type="number" class="form-control" ng-model="workout.goal">
+						<input type="number" class="form-control" ng-model="exercice.weight">
 			  		</div>
-			  		<div class="form-group">
-						<label>Reps</label>
-						<input type="number" class="form-control" ng-model="workout.goal">
+			  		<div ng-repeat="rep in reps" class="form-group">
+						<label>Reps : {{$index + 1}}</label>
+						<input type="number" class="form-control" ng-model="rep">
 			  		</div>
 				</form>
 			</div>

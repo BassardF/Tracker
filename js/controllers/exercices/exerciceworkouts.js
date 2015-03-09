@@ -21,7 +21,9 @@ app.controller('ExerciceWorkoutsController', [
 			}
 			$scope.workout.exercices.push({
 				number : $scope.workout.exercices.length + 1,
-				selected : true
+				selected : true,
+				count : 1,
+				reps : [1]
 			});
 		};
 
