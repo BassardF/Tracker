@@ -3,7 +3,7 @@
 
 <div class="container-fluid" ng-init="init()">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-2 col-md-offset-2">
 			<h2>Affected areas</h2>
 			<div class="grey-left-border small-margin-left small-padding-left">
 				<div class="selectable"
@@ -12,8 +12,7 @@
 				ng-click="selectArea(area)">{{area.name}}</div>
 			</div>
 		</div>
-		<div class="col-md-3">
-
+		<div class="col-md-2">
 			<form>
 		  		<div class="form-group">
 					<label>Name</label>
@@ -25,9 +24,8 @@
 		  		</div>
 		  		<button ng-click="save()" type="submit" class="btn btn-primary btn-sm">Create</button>
 			</form>
-
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<div id="exercices-exercices-pic-pack">
 				<img class="svg" src="img/svg/body-front.svg">
 				<img class="svg" src="img/svg/body-back.svg">

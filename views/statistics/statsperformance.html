@@ -3,7 +3,7 @@
 
 <div class="container-fluid" ng-init="init()">
   <div class="row">
-  	<div class="col-md-3">
+  	<div class="col-md-2 col-md-offset-2">
  		<h2>Bounds</h2>
   		<form>
 			<div class="form-group">
@@ -52,9 +52,8 @@
 			  	</div>
 		 	</div>
 		</form>
-
   	</div>
-  	<div ng-show="selectedExercice" class="col-md-8">
+  	<div ng-show="selectedExercice" class="col-md-6">
   		<div>
 		  	<h2>{{selectedExercice.name}}</h2>
 		  	<p><strong>Description : </strong> {{selectedExercice.description}}</p>
