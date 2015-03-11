@@ -64,6 +64,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         templateUrl: 'views/exercices/exerciceworkouts.html',
         controller: 'ExerciceWorkoutsController'
       }).
+      when('/plan', {
+        templateUrl: 'views/plan/plan.html',
+        controller: 'PlanController'
+      }).
       otherwise({
         redirectTo: '/'
       });
