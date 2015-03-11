@@ -34,4 +34,23 @@ app.controller('ExerciceWorkoutsController', [
 			exercice.selected = true;
 		}
 
+		$scope.changeExerciceCount= function(exercice){
+			var tab = [];
+			for (var i = 0; i < exercice.count; i++) {
+				tab[i] = exercice.reps[i] ?	exercice.reps[i] : 1;
+			}
+			exercice.reps = tab;
+		};
+
+		$scope.changeRep = function(exercice, index, rep){
+			exercice.reps[index] = rep;
+		};
+
+		$scope.deleteExercice = function(exercice){
+			for (var i = 0; i < $scope.workout.exercices.length; i++) {
+				if($scope.workout.exercices[i] == exercice){
+					$scope.workout.exercices.splice(i, 1);
+				}
+			}
+		};
 }]);

@@ -98,7 +98,7 @@ hr{
 	border-bottom: 1px solid rgba(100, 100, 100, 0.2);
 	vertical-align: middle;
 	margin-bottom: 40px;
-	line-height: 20px;
+	line-height: 25px;
 	text-align: center;
 }
 
@@ -188,30 +188,30 @@ hr{
 	height: 40px;
 	vertical-align: middle;
 	font-size: 20px;
-	border : solid 2px rgba(100, 100, 100, 0.2);
+	border : solid 2px #E9E9E9;
 	border-radius: 50px;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-	color : rgba(100, 100, 100, 0.4);
+	color : #E9E9E9;
 }
 
 .exercice-button:hover{
-	color : #E74C3C;
-	border-color: #E74C3C;
+	color : #34495E;
+	border-color: #34495E;
 	cursor: pointer;
 }
 
 .vertical-join{
 	height : 20px;
 	width: 2px;
-	background-color: rgba(100, 100, 100, 0.2);
+	background-color: #E9E9E9;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .selected-exercice-button{
 	color : white;
-	background-color: #E74C3C;
-	border-color: #E74C3C;
+	background-color: #34495E;
+	border-color: #34495E;
 }

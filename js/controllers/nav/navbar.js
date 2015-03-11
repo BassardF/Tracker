@@ -4,9 +4,6 @@ app.controller('NavbarController', ['$scope', '$location', function ($scope, $lo
     };
 
     $scope.isActiveStrict = function (viewLocation) {
-    	console.log(viewLocation === $location.path());
-    	console.log(viewLocation);
-    	console.log($location.path());
         return viewLocation === $location.path();
     };
 }]);

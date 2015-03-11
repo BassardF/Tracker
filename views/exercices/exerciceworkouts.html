@@ -43,17 +43,18 @@
 			  		</div>
 			  		<div class="form-group">
 						<label>Count</label>
-						<input type="number" class="form-control" ng-model="exercice.count">
+						<input type="number" class="form-control" ng-model="exercice.count" ng-change="changeExerciceCount(exercice)">
 			  		</div>
 			  		<div class="form-group">
 						<label>Weight</label>
 						<input type="number" class="form-control" ng-model="exercice.weight">
 			  		</div>
-			  		<div ng-repeat="rep in reps" class="form-group">
+			  		<div ng-repeat="rep in exercice.reps track by $index" class="form-group">
 						<label>Reps : {{$index + 1}}</label>
-						<input type="number" class="form-control" ng-model="rep">
+						<input type="number" class="form-control" ng-model="rep" ng-change="changeRep(exercice, $index, rep)">
 			  		</div>
 				</form>
+				<button ng-click="deleteExercice(exercice)" type="submit" class="btn btn-danger btn-sm">Delete</button>
 			</div>
 		</div>
 	</div>
