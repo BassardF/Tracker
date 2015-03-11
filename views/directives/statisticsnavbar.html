@@ -1,12 +1,20 @@
-<div>
+<div ng-controller="NavbarController">
   <div class="container-fluid">
     <div class="row">
 
       <div class="col-md-8 col-md-offset-2" id="statistics-navbar">
-        <a href="statistics/performance"><div class="col-md-2">Performance</div></a>
-        <a href="statistics/weight-bodyfat"><div class="col-md-2">Weight & Body fat</div></a>
-        <a href="statistics/measurements"><div class="col-md-2">Measurements</div></a>
-        <a href="statistics/areas"><div class="col-md-2">Areas</div></a>
+        <a href="statistics/performance">
+          <div class="col-md-2" ng-class="{ 'navbar-active': isActiveStrict('/statistics/performance')}">Performance</div>
+        </a>
+        <a href="statistics/weight-bodyfat">
+          <div class="col-md-2" ng-class="{ 'navbar-active': isActiveStrict('/statistics/weight-bodyfat')}">Weight & Body fat</div>
+        </a>
+        <a href="statistics/measurements">
+          <div class="col-md-2" ng-class="{ 'navbar-active': isActiveStrict('/statistics/measurements')}">Measurements</div>
+        </a>
+        <a href="statistics/areas">
+          <div class="col-md-2" ng-class="{ 'navbar-active': isActiveStrict('/statistics/areas')}">Areas</div>
+        </a>
       </div>
 
     </div>

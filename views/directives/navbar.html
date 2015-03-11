@@ -1,19 +1,46 @@
-<div id="navbar">
+<div id="navbar" ng-controller="NavbarController">
   <div class="container-fluid">
     <div class="row">
       
       <div class="col-md-2"><img id="nav-logo" src="img/logo.jpg"></div>
 
       <div class="col-md-8" id="centered-navbar">
-        <a href=""><div class="col-md-2"><img class="navbar-icon" src="img/svg/record.svg">Track</div></a>
-        <a href=""><div class="col-md-2"><img class="navbar-icon" src="img/svg/calendar.svg">Plan</div></a>
-        <a href="statistics/performance"><div class="col-md-2"><img class="navbar-icon" src="img/svg/chart.svg">Statistics</div></a>
-        <a href="exercices/exercices"><div class="col-md-2"><img class="navbar-icon" src="img/svg/gym.svg">Exercices</div></a>
-        <a href="measures/measurements"><div class="col-md-2"><img class="navbar-icon" src="img/svg/ruler.svg">Measures</div></a>
-        <a href="goals/bodyfat"><div class="col-md-2"><img class="navbar-icon" src="img/svg/aim.svg">Goals</div></a>
+        <a href="">
+          <div class="col-md-2">
+            <img class="navbar-icon" src="img/svg/record.svg">Track
+          </div>
+        </a>
+        <a href="">
+          <div class="col-md-2">
+            <img class="navbar-icon" src="img/svg/calendar.svg">Plan
+          </div>
+        </a>
+        <a href="statistics/performance">
+          <div class="col-md-2" ng-class="{ 'navbar-active': isActive('statistics/')}">
+            <img class="navbar-icon" src="img/svg/chart.svg">Statistics
+          </div>
+        </a>
+        <a href="exercices/exercices">
+          <div class="col-md-2" ng-class="{ 'navbar-active': isActive('exercices/')}">
+            <img class="navbar-icon" src="img/svg/gym.svg">Exercices
+          </div>
+        </a>
+        <a href="measures/measurements">
+          <div class="col-md-2" ng-class="{ 'navbar-active': isActive('measures/')}">
+            <img class="navbar-icon" src="img/svg/ruler.svg">Measures
+          </div>
+        </a>
+        <a href="goals/bodyfat">
+          <div class="col-md-2" ng-class="{ 'navbar-active': isActive('goals/')}">
+            <img class="navbar-icon" src="img/svg/aim.svg">Goals
+          </div>
+        </a>
       </div>
 
-      <div class="col-md-1 col-md-offset-1 setting-icon"><img class="navbar-icon" src="img/svg/settings.svg"></div>
+      <div class="col-md-1 col-md-offset-1 setting-icon">
+        <img class="navbar-icon" src="img/svg/settings.svg">
+      </div>
+
     </div>
   </div>
 </div>
