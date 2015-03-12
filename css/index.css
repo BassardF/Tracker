@@ -31,6 +31,10 @@ hr{
 	margin-left: auto;
 }
 
+.centered-text{
+	text-align: center;
+}
+
 .grey-left-border{
 	border-left: solid 1px #ccc;
 }

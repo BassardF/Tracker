@@ -1,1 +1,14 @@
 <navbar></navbar>
+
+<div class="container-fluid" ng-init="init()">
+  <div class="row">
+  	<div class="col-md-8 col-md-offset-2">
+  		<div class="centered-text">
+	  		<span ng-repeat="month in months track by $index">
+	  			<span ng-if="$index!==0"> - </span>
+	  			<span class="selectable">{{month}}</span>
+	  		</span>
+  		</div>
+  	</div>
+  </div>
+</div>
