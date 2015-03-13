@@ -26,5 +26,55 @@
       </div>
   	</div>
 
+    <div class="col-md-1">
+      <h3>Mon.</h3>
+      <div class="fake-day-box" ng-if="!isDayInFirstLine(1)"></div>
+      <div class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===1">
+        {{day.format('D')}}
+      </div>
+    </div>
+    <div class="col-md-1">
+      <h3>Tues.</h3>
+      <div class="fake-day-box" ng-if="!isDayInFirstLine(2)"></div>
+      <div class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===2">
+        {{day.format('D')}}
+      </div>
+    </div>
+    <div class="col-md-1">
+      <h3>Wed.</h3>
+      <div class="fake-day-box" ng-if="!isDayInFirstLine(3)"></div>
+      <div class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===3">
+        {{day.format('D')}}
+      </div>
+    </div>
+    <div class="col-md-1">
+      <h3>Thur.</h3>
+      <div class="fake-day-box" ng-if="!isDayInFirstLine(4)"></div>
+      <div class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===4">
+        {{day.format('D')}}
+      </div>
+    </div>
+    <div class="col-md-1">
+      <h3>Fri.</h3>
+      <div class="fake-day-box" ng-if="!isDayInFirstLine(5)"></div>
+      <div class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===5">
+        {{day.format('D')}}
+      </div>
+    </div>
+    <div class="col-md-1">
+      <h3>Sat.</h3>
+      <div class="fake-day-box" ng-if="!isDayInFirstLine(6)"></div>
+      <div class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===6">
+        {{day.format('D')}}
+      </div>
+    </div>
+    <div class="col-md-1">
+      <h3>Sun.</h3>
+      <div class="fake-day-box" ng-if="!isDayInFirstLine(7)"></div>
+      <div class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===7">
+        {{day.format('D')}}
+      </div>
+    </div>
+
   </div>
 </div>

@@ -240,3 +240,16 @@ hr{
 	border: solid 1px #eee;
 	border-radius: 6px;
 }
+
+.day-box{
+	border: solid 1px #eee;
+	padding: 5px;
+	height: 100px;
+	margin-bottom: 10px;
+}
+
+.fake-day-box{
+	padding: 5px;
+	height: 102px;
+	margin-bottom: 10px;
+}
