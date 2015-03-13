@@ -92,8 +92,8 @@ app.factory('Areas', ['$resource', function($resource) {
 
 app.factory('Workout', ['$resource', function($resource) {
 
-	return $resource('json/workout/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "json/workout/all.json"}
+	return $resource('json/workouts/:id', {id : '@id'}, {
+		all: {method: "GET", isArray: true, url: "json/workouts/all.json"}
 	});
 
 }]);

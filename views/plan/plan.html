@@ -1,14 +1,30 @@
 <navbar></navbar>
 
-<div class="container-fluid" ng-init="init()">
+<div class="container-fluid large-margin-top" ng-init="init()">
   <div class="row">
-  	<div class="col-md-8 col-md-offset-2">
-  		<div class="centered-text">
-	  		<span ng-repeat="month in months track by $index">
-	  			<span ng-if="$index!==0"> - </span>
-	  			<span class="selectable">{{month}}</span>
-	  		</span>
-  		</div>
+    <div class="centered-text">
+
+      <div class="centered-non-block">
+        <span class="small-margin-right">-</span>
+        <span>{{year}}</span>
+        <span class="small-margin-left">+</span>
+      </div>
+
+      <span ng-repeat="month in months track by $index">
+        <span ng-if="$index!==0"> - </span>
+        <span class="selectable">{{month}}</span>
+      </span>
+    </div>
+
+  	<div class="col-md-1 col-md-offset-2">
+      <div class="row">
+    		<h3>Workouts</h3>
+        <input type="text" class="form-control" ng-model="workoutFilter" placeholder="Filter">
+        <div class="workout-box small-margin-top small-margin-bottom hover-cursor-draggable" ng-repeat="workout in workouts | filter: workoutFilter">
+          {{workout.name}}
+        </div>
+      </div>
   	</div>
+
   </div>
 </div>
