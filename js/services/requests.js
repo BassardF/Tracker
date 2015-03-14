@@ -6,6 +6,14 @@ app.factory('Exercices', ['$resource', function($resource) {
 
 }]);
 
+app.factory('Planned', ['$resource', function($resource) {
+
+	return $resource('json/planned/:id', {id : '@id'}, {
+		all: {method: "GET", isArray: true, url: "json/planned/all.json"}
+	});
+
+}]);
+
 app.factory('Users', ['$resource', function($resource) {
 
 	return $resource('json/users/:id', {id : '@id'}, {});

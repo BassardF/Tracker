@@ -237,19 +237,28 @@ hr{
 
 .workout-box{
 	padding: 5px;
-	border: solid 1px #eee;
-	border-radius: 6px;
+	border-bottom: solid 1px #34495E;
+	border-left: solid 3px #34495E;
+	margin-top: 5px;
+}
+
+.workout-box:hover{
+	border-color: rgba(52, 73, 94, 0.5);
 }
 
 .day-box{
 	border: solid 1px #eee;
 	padding: 5px;
 	height: 100px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 .fake-day-box{
 	padding: 5px;
 	height: 102px;
 	margin-bottom: 10px;
+}
+
+.drag-over{
+	border: dashed 1px #aaa;
 }
