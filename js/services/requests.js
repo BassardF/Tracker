@@ -67,9 +67,17 @@ app.factory('BodyFatGoal', ['$resource', function($resource) {
 
 app.factory('Measurements', ['$resource', function($resource) {
 
-	return $resource('json/user-measurements/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "json/users/:user_id/measurements/all.json"},
-		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/user-measurements/all.json"}
+	return $resource('http://fake.co:3000/measurements/:id', {id : '@id'}, {
+		all: {method: "GET", isArray: true, url: "http://fake.co:3000/measurements"}
+	});
+
+}]);
+
+app.factory('UserMeasurements', ['$resource', function($resource) {
+
+	return $resource('http://fake.co:3000/user-measurements/:id', {id : '@id'}, {
+		all: {method: "GET", isArray: true, url: "http://fake.co:3000/user-measurements"},
+		byUser: {method: "GET", isArray: true, url: "http://fake.co:3000/user-measurements/users/:user_id"}
 	});
 
 }]);
