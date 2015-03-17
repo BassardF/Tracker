@@ -49,9 +49,9 @@ app.factory('BodyWeightGoal', ['$resource', function($resource) {
 
 app.factory('BodyFat', ['$resource', function($resource) {
 
-	return $resource('json/body-fat/:id', {id : '@id'}, {
-		lastByUser: {method: "GET", url: "json/users/:user_id/body-fat/last.json"},
-		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-fat/all.json"}
+	return $resource('http://fake.co:3000/body-fat/:id', {id : '@id'}, {
+		lastByUser: {method: "GET", url: "http://fake.co:3000/body-fat/users/:user_id/last"},
+		byUser: {method: "GET", isArray: true, url: "http://fake.co:3000/body-fat/users/:user_id"}
 	});
 
 }]);

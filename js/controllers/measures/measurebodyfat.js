@@ -11,7 +11,8 @@ app.controller('MeasureBodyFatController', [
 		};
 
 		$scope.save = function(){
-			$scope.newBodyFat.$save();	
+			$scope.newBodyFat.users_id = 1;
+			$scope.newBodyFat.$save();
 		};
 
 }]);
