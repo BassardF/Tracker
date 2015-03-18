@@ -44,7 +44,8 @@ app.controller('GoalPerformanceController', [
 				$scope.newGoal.reps.push($scope.reps[i].reps);
 			}
 			$scope.newGoal.reps = $scope.newGoal.reps.join('-');
-			$scope.newGoal.exercice_id = $scope.exercice.id;
+			$scope.newGoal.users_id = 1;
+			$scope.newGoal.exercices_id = $scope.exercice.id;
 			$scope.newGoal.$save();
 		};
 

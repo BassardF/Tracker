@@ -80,6 +80,7 @@ app.controller('ExerciceExercicesController', [
 					$scope.exercice.areas.push($scope.areas[i].id);
 				}
 			}
+			$scope.exercice.users_id = 1;
 			$scope.exercice.$save();
 			clearData();
 		};

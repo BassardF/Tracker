@@ -8,10 +8,11 @@ app.controller('GoalBodyWeightController', [
 		$scope.init = function(){
 			$scope.bodyWeightGoals = BodyWeightGoal.allByUser({user_id : 1});
 			$scope.currentBodyWeight = BodyWeight.lastByUser({user_id : 1});
-			$scope.weight = new BodyWeightGoal();
+			$scope.goal = new BodyWeightGoal();
 		};
 
 		$scope.save = function(){
-			$scope.weight.$save($scope.init);
+			$scope.goal.users_id = 1;
+			$scope.goal.$save($scope.init);
 		};
 }]);

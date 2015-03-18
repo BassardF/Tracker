@@ -1,7 +1,7 @@
 app.factory('Exercices', ['$resource', function($resource) {
 
-	return $resource('json/exercices/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "json/users/:user_id/exercices/all.json"}
+	return $resource('http://fake.co:3000/exercices/:id', {id : '@id'}, {
+		all: {method: "GET", isArray: true, url: "http://fake.co:3000/exercices"}
 	});
 
 }]);
@@ -84,24 +84,24 @@ app.factory('UserMeasurements', ['$resource', function($resource) {
 
 app.factory('MeasurementsGoal', ['$resource', function($resource) {
 
-	return $resource('json/user-measurements-goals/:id', {id : '@id'}, {
-		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/measurements-goals/all.json"}
+	return $resource('http://fake.co:3000/measurements-goals/:id', {id : '@id'}, {
+		byUser: {method: "GET", isArray: true, url: "http://fake.co:3000/measurements-goals/:id/users/:user_id"}
 	});
 
 }]);
 
 app.factory('PerformanceGoal', ['$resource', function($resource) {
 
-	return $resource('json/user-performance-goals/:id', {id : '@id'}, {
-		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/performance-goals/all.json"}
+	return $resource('http://fake.co:3000/performance-goals/:id', {id : '@id'}, {
+		byUser: {method: "GET", isArray: true, url: "http://fake.co:3000/performance-goals/users/:user_id"}
 	});
 
 }]);
 
 app.factory('Areas', ['$resource', function($resource) {
 
-	return $resource('json/areas/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "json/areas/all.json"}
+	return $resource('http://fake.co:3000/areas/:id', {id : '@id'}, {
+		all: {method: "GET", isArray: true, url: "http://fake.co:3000/areas"}
 	});
 
 }]);
