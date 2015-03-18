@@ -31,18 +31,18 @@ app.factory('SchedulesExercices', ['$resource', function($resource) {
 
 app.factory('BodyWeight', ['$resource', function($resource) {
 
-	return $resource('json/body-weight/:id', {id : '@id'}, {
-		byUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-weight/all.json"},
-		lastByUser: {method: "GET", url: "json/users/:user_id/body-weight/last.json"}
+	return $resource('http://fake.co:3000/body-weight/:id', {id : '@id'}, {
+		lastByUser: {method: "GET", url: "http://fake.co:3000/body-weight/users/:user_id/last"},
+		byUser: {method: "GET", isArray: true, url: "http://fake.co:3000/body-weight/users/:user_id"}
 	});
 
 }]);
 
 app.factory('BodyWeightGoal', ['$resource', function($resource) {
 
-	return $resource('json/body-weight-goal/:id', {id : '@id'}, {
-		lastByUser: {method: "GET", url: "json/users/:user_id/body-weight-goal/last.json"},
-		allByUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-weight-goal/all.json"}
+	return $resource('http://fake.co:3000/body-weight-goals/:id', {id : '@id'}, {
+		lastByUser: {method: "GET", url: "http://fake.co:3000/body-weight-goals/:id/users/:user_id/last"},
+		allByUser: {method: "GET", isArray: true, url: "http://fake.co:3000/body-weight-goals/:id/users/:user_id"}
 	});
 
 }]);
@@ -58,9 +58,9 @@ app.factory('BodyFat', ['$resource', function($resource) {
 
 app.factory('BodyFatGoal', ['$resource', function($resource) {
 
-	return $resource('json/body-fat-goal/:id', {id : '@id'}, {
-		lastByUser: {method: "GET", url: "json/users/:user_id/body-fat-goal/last.json"},
-		allByUser: {method: "GET", isArray: true, url: "json/users/:user_id/body-fat-goal/all.json"}
+	return $resource('http://fake.co:3000/body-fat-goals/:id', {id : '@id'}, {
+		lastByUser: {method: "GET", url: "http://fake.co:3000/body-fat-goals/:id/users/:user_id/last"},
+		allByUser: {method: "GET", isArray: true, url: "http://fake.co:3000/body-fat-goals/:id/users/:user_id"}
 	});
 
 }]);

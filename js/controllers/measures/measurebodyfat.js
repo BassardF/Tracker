@@ -7,6 +7,9 @@ app.controller('MeasureBodyFatController', [
 
 		$scope.init = function(){
 			$scope.bodyFat = BodyFat.lastByUser({user_id : 1});
+			$scope.bodyFat.$promise.then(function(){
+				$scope.bodyFat.date = moment($scope.bodyFat.date).format('YYYY-MM-DD');
+			});
 			$scope.newBodyFat = new BodyFat();
 		};
 

@@ -12,6 +12,7 @@ app.controller('GoalBodyFatController', [
 		};
 
 		$scope.save = function(){
+			$scope.goal.users_id = 1;
 			$scope.goal.$save($scope.init);
 		};
 }]);
