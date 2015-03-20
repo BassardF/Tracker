@@ -1,9 +1,9 @@
 app.controller('PlanController', [
 	'$scope',
 	'Workout',
-	'Planned',
+	'Schedules',
 
-	function ($scope, Workout, Planned) {
+	function ($scope, Workout, Schedules) {
 
 		$scope.init = function(){
 			$scope.callCount = 0;
@@ -11,7 +11,7 @@ app.controller('PlanController', [
 			$scope.months = [];
 
 			$scope.workouts = Workout.all(callbacks);
-			$scope.planned = Planned.all(callbacks);
+			$scope.schedules = Schedules.all(callbacks);
 
 			$scope.today = moment(new Date());
 			$scope.year = $scope.today.year();
@@ -34,10 +34,10 @@ app.controller('PlanController', [
 				date.withinFirstWeek = withinFirstWeek;
 				date.customId = i;
 				withinFirstWeek = withinFirstWeek && date.isoWeekday() !== 7;
-				date.planned = [];
-				for (var j = 0; j < $scope.planned.length; j++) {
-					if(sameDay(date, moment($scope.planned[j].date, 'DD-MM-YYYY'))){
-						date.planned.push($scope.planned[j]);
+				date.schedules = [];
+				for (var j = 0; j < $scope.schedules.length; j++) {
+					if(sameDay(date, moment($scope.schedules[j].date, 'YYYY-MM-DD'))){
+						date.schedules.push($scope.schedules[j]);
 					}
 				}
 				$scope.days.push(date);
@@ -58,14 +58,14 @@ app.controller('PlanController', [
 			return firstLine;
 		};
 
-		$scope.drop = function(source, dest){
-			var sourceExercice = {}, destDay = {};
+		$scope.drop = function(source, dest){			
+			var sourceExercice = {}, selectedDay = {};
 			var sourceId = source.replace('source-', '');
 			
 			
 			for (var i = 0; i < $scope.days.length; i++) {
 				if($scope.days[i].customId === +dest){
-					destDay = $scope.days[i];
+					selectedDay = $scope.days[i];
 				}
 			}
 
@@ -74,10 +74,22 @@ app.controller('PlanController', [
 					sourceExercice = $scope.workouts[j];
 				}
 			}
+			scheduleWorkout(sourceExercice, selectedDay);
 			
 		};
 
+		function scheduleWorkout(workout, date){
+			var schedule = new Schedules({
+				users_id : 1,
+				workouts_id : workout.id,
+				date : date
+			});
+			schedule.$save();
+		}
+
 		function sameDay(d1, d2){
+			console.log(d1);
+			console.log(d2);
 			return d1.isSame(d2, 'day');
 		}
 }]);

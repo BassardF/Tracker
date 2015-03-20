@@ -31,7 +31,7 @@
       <div class="fake-day-box" ng-if="!isDayInFirstLine(1)"></div>
       <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===1" drop-target="true" on-drop="drop(dragEl, dropEl)">
         {{day.format('D')}}
-        <div ng-repeat="planned in day.planned">{{planned.name}}</div>
+        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
       </div>
     </div>
     <div class="col-md-1">
@@ -39,7 +39,7 @@
       <div class="fake-day-box" ng-if="!isDayInFirstLine(2)"></div>
       <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===2" drop-target="true" on-drop="drop(dragEl, dropEl)">
         {{day.format('D')}}
-        <div ng-repeat="planned in day.planned">{{planned.name}}</div>
+        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
       </div>
     </div>
     <div class="col-md-1">
@@ -47,7 +47,7 @@
       <div class="fake-day-box" ng-if="!isDayInFirstLine(3)"></div>
       <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===3" drop-target="true" on-drop="drop(dragEl, dropEl)">
         {{day.format('D')}}
-        <div ng-repeat="planned in day.planned">{{planned.name}}</div>
+        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
       </div>
     </div>
     <div class="col-md-1">
@@ -55,7 +55,7 @@
       <div class="fake-day-box" ng-if="!isDayInFirstLine(4)"></div>
       <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===4" drop-target="true" on-drop="drop(dragEl, dropEl)">
         {{day.format('D')}}
-        <div ng-repeat="planned in day.planned">{{planned.name}}</div>
+        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
       </div>
     </div>
     <div class="col-md-1">
@@ -63,7 +63,7 @@
       <div class="fake-day-box" ng-if="!isDayInFirstLine(5)"></div>
       <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===5" drop-target="true" on-drop="drop(dragEl, dropEl)">
         {{day.format('D')}}
-        <div ng-repeat="planned in day.planned">{{planned.name}}</div>
+        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
       </div>
     </div>
     <div class="col-md-1">
@@ -71,7 +71,7 @@
       <div class="fake-day-box" ng-if="!isDayInFirstLine(6)"></div>
       <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===6" drop-target="true" on-drop="drop(dragEl, dropEl)">
         {{day.format('D')}}
-        <div ng-repeat="planned in day.planned">{{planned.name}}</div>
+        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
       </div>
     </div>
     <div class="col-md-1">
@@ -79,7 +79,7 @@
       <div class="fake-day-box" ng-if="!isDayInFirstLine(7)"></div>
       <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===7" drop-target="true" on-drop="drop(dragEl, dropEl)">
         {{day.format('D')}}
-        <div ng-repeat="planned in day.planned">{{planned.name}}</div>
+        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
       </div>
     </div>
 

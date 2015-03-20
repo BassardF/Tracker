@@ -6,10 +6,10 @@ app.factory('Exercices', ['$resource', function($resource) {
 
 }]);
 
-app.factory('Planned', ['$resource', function($resource) {
+app.factory('Schedules', ['$resource', function($resource) {
 
-	return $resource('json/planned/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "json/planned/all.json"}
+	return $resource('http://fake.co:3000/schedules/:id', {id : '@id'}, {
+		all: {method: "GET", isArray: true, url: "http://fake.co:3000/schedules"}
 	});
 
 }]);
@@ -108,8 +108,8 @@ app.factory('Areas', ['$resource', function($resource) {
 
 app.factory('Workout', ['$resource', function($resource) {
 
-	return $resource('json/workouts/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "json/workouts/all.json"}
+	return $resource('http://fake.co:3000/workouts/:id', {id : '@id'}, {
+		all: {method: "GET", isArray: true, url: "http://fake.co:3000/workouts"}
 	});
 
 }]);

@@ -12,6 +12,10 @@ app.controller('ExerciceWorkoutsController', [
 		};
 
 		$scope.save = function(){
+			$scope.workout.users_id = 1;
+			for (var i = 0; i < $scope.workout.exercices.length; i++) {
+				$scope.workout.exercices[i].reps = $scope.workout.exercices[i].reps.join('-');
+			}
 			$scope.workout.$save();
 		};
 
