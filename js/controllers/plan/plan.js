@@ -88,8 +88,6 @@ app.controller('PlanController', [
 		}
 
 		function sameDay(d1, d2){
-			console.log(d1);
-			console.log(d2);
 			return d1.isSame(d2, 'day');
 		}
 }]);

@@ -262,3 +262,20 @@ hr{
 .drag-over{
 	border: dashed 1px #aaa;
 }
+
+/* Track */
+
+.track-box{
+	padding: 5px;
+	border-bottom: solid 1px #34495E;
+	border-left: solid 3px #34495E;
+	margin-top: 5px;
+}
+
+.track-box:hover{
+	cursor: pointer;
+}
+
+.track-box:hover{
+	border-color: rgba(52, 73, 94, 0.5);
+}

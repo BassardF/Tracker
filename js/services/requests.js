@@ -9,7 +9,8 @@ app.factory('Exercices', ['$resource', function($resource) {
 app.factory('Schedules', ['$resource', function($resource) {
 
 	return $resource('http://fake.co:3000/schedules/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "http://fake.co:3000/schedules"}
+		all: {method: "GET", isArray: true, url: "http://fake.co:3000/schedules"},
+		byUser: {method: "GET", isArray: true, url: "http://fake.co:3000/schedules/users/:user_id"}
 	});
 
 }]);
@@ -22,9 +23,9 @@ app.factory('Users', ['$resource', function($resource) {
 
 app.factory('SchedulesExercices', ['$resource', function($resource) {
 
-	return $resource('json/users/:user_id/schedules-exercices/exercices/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "json/users/:user_id/schedules-exercices/all.json"},
-		byExercice: {method: "GET", isArray: true, url: "json/users/:user_id/schedules-exercices/exercices/:exercice_id/all.json"}
+	return $resource('http://fake.co:3000/schedules-exercices/:id', {id : '@id'}, {
+		bySchedule: {method: "GET", isArray: true, url: "http://fake.co:3000/schedules-exercices/schedules/:schedule_id"},
+		byExercice: {method: "GET", isArray: true, url: "http://fake.co:3000/schedules-exercices/exercices/:exercice_id"}
 	});
 
 }]);
