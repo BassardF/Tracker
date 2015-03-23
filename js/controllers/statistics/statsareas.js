@@ -10,7 +10,7 @@ app.controller('StatsAreasCtrl', [
 		$scope.init = function(){
 			Chart.defaults.global.responsive = true;
 			Chart.defaults.global.showTooltips = false;
-			$scope.exercices = SchedulesExercices.all({user_id : 1}, getAllAreas);			
+			$scope.exercices = SchedulesExercices.byUser({user_id : 1}, getAllAreas);			
 		};
 
 		function getAllAreas(){

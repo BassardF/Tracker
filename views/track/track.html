@@ -15,7 +15,7 @@
   		<div ng-repeat="schedulesExercice in schedulesExercices">
   			<div class="vertical-join" ng-if="$index !== 0"></div>
 			<div class="exercice-button" ng-class="{'selected-exercice-button': schedulesExercice == selectedScheduleExercice}" ng-click="selectScheduleExercice(schedulesExercice)">
-					{{$index + 1}}
+				{{$index + 1}}
 			</div>
 		</div>
   	</div>
@@ -35,7 +35,7 @@
 			<form>
 		  		<div class="form-group">
 					<label>Exercice</label>
-					<select ng-options="exercice.id as exercice.name for exercice in exercices" class="form-control" ng-model="schedulesExercice.exercice_id"></select>
+					<select ng-options="exercice.id as exercice.name for exercice in exercices" class="form-control" ng-model="schedulesExercice.exercices_id"></select>
 		  		</div>
 		  		<div class="form-group">
 					<label>Rest</label>
@@ -54,7 +54,7 @@
 					<input type="number" class="form-control" ng-model="rep" ng-change="changeRep(schedulesExercice, $index, rep)">
 		  		</div>
 			</form>
-			<button ng-click="deleteExercice(exercice)" type="submit" class="btn btn-danger btn-sm">Delete</button>
+			<button ng-click="updateExercice(schedulesExercice)" type="submit" class="btn btn-default btn-sm">Update</button>
 		</div>
 	</div>
 

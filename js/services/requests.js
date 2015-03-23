@@ -25,7 +25,8 @@ app.factory('SchedulesExercices', ['$resource', function($resource) {
 
 	return $resource('http://fake.co:3000/schedules-exercices/:id', {id : '@id'}, {
 		bySchedule: {method: "GET", isArray: true, url: "http://fake.co:3000/schedules-exercices/schedules/:schedule_id"},
-		byExercice: {method: "GET", isArray: true, url: "http://fake.co:3000/schedules-exercices/exercices/:exercice_id"}
+		byExercice: {method: "GET", isArray: true, url: "http://fake.co:3000/schedules-exercices/exercices/:exercice_id"},
+		byUser: {method: "GET", isArray: true, url: "http://fake.co:3000/schedules-exercices/users/:user_id"}
 	});
 
 }]);

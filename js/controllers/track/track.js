@@ -2,7 +2,8 @@ app.controller('TrackController', [
 	'$scope',
 	'Schedules',
 	'SchedulesExercices',
-	function ($scope, Schedules, SchedulesExercices){
+	'Exercices',
+	function ($scope, Schedules, SchedulesExercices, Exercices){
 
 		Schedules.byUser({
 			user_id : 1
@@ -15,6 +16,8 @@ app.controller('TrackController', [
 			}
 			$scope.schedules = awn;
 		});
+
+		$scope.exercices = Exercices.all({user_id : 1});
 
 		function getSpanLabel(current, today){
 			var span = current.diff(today, 'days')
@@ -33,16 +36,18 @@ app.controller('TrackController', [
 				schedule_id : schedule.id
 			});
 
-			$scope.schedulesExercices.$promise.then(function(awn){
-				for (var i = 0; i < $scope.schedulesExercices.length; i++) {
+			$scope.schedulesExercices.$promise.then(craftReps);
+		};
+
+		function craftReps(){
+			for (var i = 0; i < $scope.schedulesExercices.length; i++) {
 					$scope.schedulesExercices[i].reps = $scope.schedulesExercices[i].reps.split('-');
 					for (var j = 0; j < $scope.schedulesExercices[i].reps.length; j++) {
 						$scope.schedulesExercices[i].reps[j] = +$scope.schedulesExercices[i].reps[j];
 					}
 				}
 				$scope.selectedScheduleExercice = $scope.schedulesExercices[0];
-			});
-		};
+		}
 
 		$scope.selectScheduleExercice = function(scheduleExercice){
 			$scope.selectedScheduleExercice = scheduleExercice;
@@ -58,5 +63,11 @@ app.controller('TrackController', [
 				tab[i] = schedulesExercice.reps[i] ? schedulesExercice.reps[i] : 1;
 			}
 			schedulesExercice.reps = tab;
+		};
+
+		$scope.updateExercice = function(schedulesExercice){
+			var se = new SchedulesExercices(schedulesExercice);
+			se.reps = se.reps.join("-");
+			se.$save();
 		};
 }]);
