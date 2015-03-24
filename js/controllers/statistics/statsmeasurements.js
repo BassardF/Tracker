@@ -1,41 +1,27 @@
 app.controller('StatsMeasurementsCtrl', [
 	'$scope',
-
+	'$q',
+	'UserMeasurements',
 	'Measurements',
-
 	'chartService',
 
-	function ($scope, Measurements, chartService) {
+	function ($scope, $q, UserMeasurements, Measurements, chartService) {
 
 		$scope.init = function(){
-			$scope.measurements = Measurements.byUser({user_id : 1}, isolateMeasurements);
+			$scope.measures = Measurements.all();
+			$scope.measurements = UserMeasurements.byUser({user_id : 1});
+			$q.all([$scope.measures.$promise, $scope.measurements.$promise]).then(function(values) {        
+				$scope.selectedMeasure = $scope.measures[0];
+				$scope.plotMeasurements($scope.measures[0]);
+			});
 		};
-
-		function isolateMeasurements(data){
-			var tab = [], token = false;
-			for (var i = 0; i < data.length; i++) {
-				var measure = data[i];
-				token = false;
-				for (var j = 0; j < tab.length; j++) {
-					if(tab[j].id === measure.measurement.id){
-						token = true;
-					}
-				}
-				if(!token){
-					tab.push(measure.measurement);
-				}
-			}
-			$scope.measures = tab;
-			$scope.selectedMeasure = tab[0];
-			$scope.plotMeasurements(tab[0]);
-		}
 
 		$scope.plotMeasurements = function(measure){
 			Chart.defaults.global.responsive = true;
 			Chart.defaults.global.showTooltips = false;
 			var tab = [];
 			for (var i = 0; i < $scope.measurements.length; i++) {
-				if($scope.measurements[i].measurement.id === measure.id){
+				if($scope.measurements[i].measurements_id === measure.id){
 					tab.push($scope.measurements[i]);
 				}
 			}
