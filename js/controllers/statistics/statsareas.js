@@ -10,31 +10,16 @@ app.controller('StatsAreasCtrl', [
 		$scope.init = function(){
 			Chart.defaults.global.responsive = true;
 			Chart.defaults.global.showTooltips = false;
-			$scope.exercices = SchedulesExercices.byUser({user_id : 1}, getAllAreas);			
+			$scope.areas = SchedulesExercices.byUser({user_id : 1}, manageAreas);			
 		};
 
-		function getAllAreas(){
-			var areas = [];
-			for (var i = 0; i < $scope.exercices.length; i++) {
-				var currentAreas = $scope.exercices[i].exercice.areas;
-				for (var j = 0; j < currentAreas.length; j++) {
-					var area = currentAreas[j];
-					var token = false;
-					for (var k = 0; k < areas.length; k++) {
-						if(areas[k].id === area.id){
-							token = true;
-						}
-					}
-					if(!token){
-						area.selected = true;
-						areas.push(area);
-					}
-				}
+		function manageAreas(){
+			for (var i = 0; i < $scope.areas.length; i++) {
+				$scope.areas[i].selected = true;
 			}
-			areas.sort(function(a, b){
+			$scope.areas.sort(function(a, b){
 				return a.name > b.name;
 			});
-			$scope.areas = areas;
 			plot();
 		}
 
@@ -46,12 +31,13 @@ app.controller('StatsAreasCtrl', [
 			var ctx = document.getElementById("chart").getContext("2d"),
 				datas = [[]],
 				labels = [],
-				areaCount = 0, avg = 0, std = 0, min = 1000, max = 0;
+				areaCount = 0, avg = 0, std = 0, min = 1000, max = 0, count = 0;
 
 			for (var i = 0; i < $scope.areas.length; i++) {
 				if($scope.areas[i].selected){
-					areaCount++;
-					var trainingCount = getNumerOftraining($scope.areas[i]);
+					count++;
+					areaCount+= $scope.areas[i].count;
+					var trainingCount = $scope.areas[i].count;
 					avg += trainingCount;
 					labels.push($scope.areas[i].name);
 					datas[0].push(trainingCount);
@@ -60,11 +46,12 @@ app.controller('StatsAreasCtrl', [
 				}
 			}
 
-			avg /= areaCount;
+			avg /= count;
 
+			
 			for (var j = 0; j < $scope.areas.length; j++) {
 				if($scope.areas[j].selected){
-					var trainingCount = getNumerOftraining($scope.areas[j]);
+					var trainingCount = $scope.areas[j].count;
 					std += Math.pow(trainingCount - avg, 2);
 				}
 			}
@@ -77,11 +64,15 @@ app.controller('StatsAreasCtrl', [
 			var myRadarChart = new Chart(ctx).Radar(data, {});
 
 			$scope.generalData = [{
-				title : "Records count",
-				data : $scope.exercices.length,
+				title : "Areas count",
+				data : count,
 				hr : true
 			}, {
-				title : "Average wourkouts count",
+				title : "Records count",
+				data : areaCount,
+				hr : true
+			}, {
+				title : "Average count",
 				data : Math.round(avg * 100) / 100
 			}, {
 				title : "Std wourkouts count",
@@ -96,18 +87,5 @@ app.controller('StatsAreasCtrl', [
 				data : min
 			}];
 
-		}
-
-		function getNumerOftraining(area){
-			var count = 0;
-			for (var i = 0; i < $scope.exercices.length; i++) {
-				var areas = $scope.exercices[i].exercice.areas;
-				for (var j = 0; j < areas.length; j++) {
-					if(areas[j].id == area.id){
-						count++;
-					}
-				}
-			}
-			return count;
 		}
 }]);
