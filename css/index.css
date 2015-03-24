@@ -3,14 +3,27 @@
     src: url(../fonts/raleway/Raleway-Medium.ttf);
 }
 
+html{
+	height : 100%;
+}
+
 body{
     font-family: mainFont;
     font-size: 12px;
+	height : 100%;
 }
 
 hr{
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+#global-view{
+	height : 100%;
+}
+
+#global-view > .container-fluid, #global-view > .container-fluid > .row{
+	height : 100%;
 }
 
 .no-padding{
@@ -94,68 +107,20 @@ hr{
 	cursor: move;
 }
 
+.full-height{
+	height : 100%;
+}
+
 /* Navbar */
 
-#centered-navbar{
-	border-bottom: 1px solid rgba(100, 100, 100, 0.2);
-	vertical-align: middle;
-	line-height: 35px;
-	text-align: center;
-}
-
-#centered-navbar div:hover{
-	border-top: solid 2px rgba(52, 73, 94, 0.5) !important;
-}
-
-#centered-navbar div{
-	border-top: solid 2px white;
-}
-
-#exercices-navbar, #goals-navbar, #measures-navbar, #statistics-navbar{
-	border-bottom: 1px solid rgba(100, 100, 100, 0.2);
-	vertical-align: middle;
-	margin-bottom: 40px;
-	line-height: 25px;
-	text-align: center;
-}
-
-#exercices-navbar div, #goals-navbar div, #measures-navbar div, #statistics-navbar div{
-	border-top: solid 2px white;
-}
-
-#exercices-navbar div:hover, #goals-navbar div:hover, #measures-navbar div:hover, #statistics-navbar div:hover{
-	border-top: solid 2px rgba(52, 73, 94, 0.5) !important;
-}
-
-#centered-navbar div:hover{
-	cursor: pointer;
-	opacity: 0.7;
-}
-
-.setting-icon{
-	vertical-align: middle;
-	line-height: 35px;
-}
-
-.setting-icon:hover{
-	cursor: pointer;
-	opacity: 0.7;
-}
-
-#nav-logo{
-	position: absolute;
-	width: 150px;
-	height: 150px;
+.navbar{
+	height : 100%;
 }
 
 .navbar-icon{
-	width: 25px;
-	height: 25px;
-	margin-right: 5px;
-}
-
-.navbar-active{
-	border-top: solid 2px #34495E !important;
+	height: 30px;
+	width: 30px;
+	margin: 10px;
 }
 
 /* Stats performance */
