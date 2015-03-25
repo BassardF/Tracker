@@ -113,14 +113,49 @@ hr{
 
 /* Navbar */
 
-.navbar{
+.nav, .nav > div{
 	height : 100%;
+	overflow: auto;
+}
+
+.nav-left{
+	background-color: #1A2530;
+	border-right: solid 1px #34495E;	
+}
+
+.nav-right{
+	background-color: #2C3E50;
+	color: lightgrey;
+	padding: 10px;
+	margin-left: -3px;
+}
+
+.nav li{
+	margin-top: 2px;
+	margin-bottom: 2px;	
+	font-size: 10px;	
+	list-style-type: none;
+}
+
+.nav ul{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 10px;
+}
+
+.nav a{
+	color: lightgrey;
+	text-decoration: none;
 }
 
 .navbar-icon{
 	height: 30px;
 	width: 30px;
 	margin: 10px;
+}
+
+.navbar-active{
+	background-color: #2C3E50;
 }
 
 /* Stats performance */

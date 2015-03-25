@@ -1,40 +1,112 @@
-<div class="navbar" ng-controller="NavbarController">
+<div class="nav" ng-controller="NavbarController">
 
-        <a href="track">
-          <div class="nav-icon" ng-class="{ 'navbar-active': isActive('track')}">
-            <img class="navbar-icon" src="img/svg/record.svg">
-          </div>
-        </a>
-        <a href="plan">
-          <div class="nav-icon" ng-class="{ 'navbar-active': isActive('plan')}">
-            <img class="navbar-icon" src="img/svg/calendar.svg">
-          </div>
-        </a>
-        <a href="statistics/performance">
-          <div class="nav-icon" ng-class="{ 'navbar-active': isActive('statistics/')}">
-            <img class="navbar-icon" src="img/svg/chart.svg">
-          </div>
-        </a>
-        <a href="exercices/exercices">
-          <div class="nav-icon" ng-class="{ 'navbar-active': isActive('exercices/')}">
-            <img class="navbar-icon" src="img/svg/gym.svg">
-          </div>
-        </a>
-        <a href="measures/measurements">
-          <div class="nav-icon" ng-class="{ 'navbar-active': isActive('measures/')}">
-            <img class="navbar-icon" src="img/svg/ruler.svg">
-          </div>
-        </a>
-        <a href="goals/bodyfat">
-          <div class="nav-icon" ng-class="{ 'navbar-active': isActive('goals/')}">
-            <img class="navbar-icon" src="img/svg/aim.svg">
-          </div>
-        </a>
-		
+  <div class="inline-block nav-left">
+    <a href="track">
+      <div class="nav-icon" ng-class="{ 'navbar-active': isActive('track')}">
+        <img class="navbar-icon" src="img/svg/record.svg">
+      </div>
+    </a>
+    <a href="plan">
+      <div class="nav-icon" ng-class="{ 'navbar-active': isActive('plan')}">
+        <img class="navbar-icon" src="img/svg/calendar.svg">
+      </div>
+    </a>
+    <a href="statistics/performance">
+      <div class="nav-icon" ng-class="{ 'navbar-active': isActive('statistics/')}">
+        <img class="navbar-icon" src="img/svg/chart.svg">
+      </div>
+    </a>
+    <a href="exercices/exercices">
+      <div class="nav-icon" ng-class="{ 'navbar-active': isActive('exercices/')}">
+        <img class="navbar-icon" src="img/svg/gym.svg">
+      </div>
+    </a>
+    <a href="measures/measurements">
+      <div class="nav-icon" ng-class="{ 'navbar-active': isActive('measures/')}">
+        <img class="navbar-icon" src="img/svg/ruler.svg">
+      </div>
+    </a>
+    <a href="goals/bodyfat">
+      <div class="nav-icon" ng-class="{ 'navbar-active': isActive('goals/')}">
+        <img class="navbar-icon" src="img/svg/aim.svg">
+      </div>
+    </a>
 		<a href="setting">
 			<div class="nav-icon">
         		<img class="navbar-icon" src="img/svg/settings.svg">
 			</div>
 		</a>
+  </div>
+
+  <div class="inline-block nav-right">
+    <div>
+      Track
+    </div>
+    <div>
+      Plan
+    </div>
+    <div>
+      Statistics
+      <ul>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/statistics/performance')}">
+          <a href="statistics/performance">Performance</a>
+        </li>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/statistics/weight-bodyfat')}">
+          <a href="statistics/weight-bodyfat">Weight & Body fat</a>
+        </li>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/statistics/measurements')}">
+          <a href="statistics/measurements">Measurements</a>
+        </li>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/statistics/areas')}">
+          <a href="statistics/areas">Areas</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      Exercices
+      <ul>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/exercices/exercices')}">
+          <a href="exercices/exercices">Exercices</a>
+        </li>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/exercices/workouts')}">
+          <a href="exercices/workouts">Workouts</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      Measures
+      <ul>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/measures/measurements')}">
+          <a href="measures/measurements">Measurements</a>
+        </li>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/measures/weight')}">
+          <a href="measures/weight">Body weight</a>
+        </li>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/measures/bodyfat')}">
+          <a href="measures/bodyfat">Body fat</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      Goals
+      <ul>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/goals/bodyfat')}">
+          <a href="goals/bodyfat">Body fat</a>
+        </li>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/goals/bodyweight')}">
+          <a href="goals/bodyweight">Body weight</a>
+        </li>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/goals/bodymeasurements')}">
+          <a href="goals/bodymeasurements">Measurements</a>
+        </li>
+        <li ng-class="{ 'navbar-active': isActiveStrict('/goals/performance')}">
+          <a href="goals/performance">Performance</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      Setting
+    </div>
+  </div>
 		
 </div>
