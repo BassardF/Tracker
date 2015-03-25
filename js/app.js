@@ -12,6 +12,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       }).
+      when('/dashboard', {
+        templateUrl: 'views/dashboard/dashboard.html',
+        controller: 'DashboardController'
+      }).
       when('/statistics/performance', {
         templateUrl: 'views/statistics/statsperformance.html',
         controller: 'StatsPerformanceCtrl'

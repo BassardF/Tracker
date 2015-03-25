@@ -116,6 +116,7 @@ hr{
 .nav, .nav > div{
 	height : 100%;
 	overflow: auto;
+	vertical-align: top;
 }
 
 .nav-left{
@@ -156,6 +157,21 @@ hr{
 
 .navbar-active{
 	background-color: #2C3E50;
+}
+
+.subnav-active a{
+	
+}
+
+.subnav-pack{
+	border-bottom: solid 1px #34495E;
+	margin-top: 5px;
+	padding-bottom: 2px;
+	opacity: 0.5;
+}
+
+.subnav-pack-active{
+	opacity: 1;
 }
 
 /* Stats performance */
