@@ -126,7 +126,7 @@ hr{
 
 .nav-right{
 	background-color: #2C3E50;
-	color: lightgrey;
+	color: #8FA3B8;
 	padding: 10px;
 	margin-left: -3px;
 }
@@ -134,7 +134,7 @@ hr{
 .nav li{
 	margin-top: 2px;
 	margin-bottom: 2px;	
-	font-size: 10px;	
+	font-size: 11px;	
 	list-style-type: none;
 }
 
@@ -145,7 +145,7 @@ hr{
 }
 
 .nav a{
-	color: lightgrey;
+	color: #8FA3B8;
 	text-decoration: none;
 }
 
