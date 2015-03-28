@@ -1,7 +1,8 @@
 app.factory('Exercices', ['$resource', function($resource) {
 
 	return $resource('http://fake.co:3000/exercices/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "http://fake.co:3000/exercices"}
+		all: {method: "GET", isArray: true, url: "http://fake.co:3000/exercices"},
+		byUser: {method: "GET", isArray: true, url: "http://fake.co:3000/exercices/users/:user_id"}
 	});
 
 }]);

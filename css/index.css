@@ -18,6 +18,26 @@ hr{
 	margin-bottom: 5px;
 }
 
+h1{
+	border-bottom: solid black 2px;
+	padding: 5px;
+	margin-bottom: 15px;
+	display: inline-block;
+}
+
+input, select{
+	font-size: 12px;
+	border-top: none !important;
+	border-right: none !important;
+	border-bottom: none !important;
+	box-shadow: none !important;
+	height: 25px !important;
+}
+
+.checkbox input{
+	height: 18px !important;	
+}
+
 #global-view{
 	height : 100%;
 }
@@ -44,8 +64,17 @@ hr{
 	margin-left: auto;
 }
 
+.overflow{
+	overflow: auto;
+	height: 100%;
+}
+
 .centered-text{
 	text-align: center;
+}
+
+.v-align-middle{
+	vertical-align: middle;
 }
 
 .grey-left-border{
@@ -78,6 +107,10 @@ hr{
 
 .large-margin-top{
 	margin-top: 40px;
+}
+
+.x-large-margin-top{
+	margin-top: 65px;
 }
 
 .grey-color{
@@ -160,7 +193,7 @@ hr{
 }
 
 .subnav-active a{
-	
+	text-decoration: underline;
 }
 
 .subnav-pack{
