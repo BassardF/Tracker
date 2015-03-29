@@ -1,60 +1,68 @@
-<div class="container-fluid" ng-init="init()">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2 full-height no-padding">
 			<navbar></navbar>
 		</div>
-		<div class="col-md-3">
-			<form>
-		  		<div class="form-group">
-					<label>Name</label>
-					<input type="text" class="form-control" ng-model="workout.name">
-		  		</div>
-		  		<div class="form-group">
-					<label>Description</label>
-					<input type="text" class="form-control" ng-model="workout.description">
-		  		</div>
-		  		<div class="form-group">
-					<label>Goal</label>
-					<input type="text" class="form-control" ng-model="workout.goal">
-		  		</div>
-		  		<button ng-click="save()" type="submit" class="btn btn-primary btn-sm">Create</button>
-			</form>
-		</div>
-		<div class="col-md-1 col-md-offset-1">
-			<div ng-repeat="exercice in workout.exercices">
-				<div class="exercice-button" ng-class="{'selected-exercice-button': exercice.selected}" ng-click="selectExercice(exercice)">
-						{{$index + 1}}	
-				</div>
-				<div class="vertical-join"></div>
+
+		<div class="col-md-10 overflow">
+			<div class="row">
+				<h1>Create a workout</h1>
 			</div>
-			<img ng-click="addExercice()" class="size-40x40 hover-cursor-pointer centered-non-block" src="img/svg/add.svg">
-		</div>
-		<div class="col-md-3">
-			<div ng-repeat="exercice in workout.exercices" ng-show="exercice.selected">
-				<h2>Exercice #{{exercice.number}}</h2>
-				<form>
-			  		<div class="form-group">
-						<label>Exercice</label>
-						<select ng-options="exercice.id as exercice.name for exercice in exercices" class="form-control" ng-model="exercice.exercice_id"></select>
-			  		</div>
-			  		<div class="form-group">
-						<label>Rest</label>
-						<input type="number" class="form-control" ng-model="exercice.rest">
-			  		</div>
-			  		<div class="form-group">
-						<label>Count</label>
-						<input type="number" class="form-control" ng-model="exercice.count" ng-change="changeExerciceCount(exercice)">
-			  		</div>
-			  		<div class="form-group">
-						<label>Weight</label>
-						<input type="number" class="form-control" ng-model="exercice.weight">
-			  		</div>
-			  		<div ng-repeat="rep in exercice.reps track by $index" class="form-group">
-						<label>Reps : {{$index + 1}}</label>
-						<input type="number" class="form-control" ng-model="rep" ng-change="changeRep(exercice, $index, rep)">
-			  		</div>
-				</form>
-				<button ng-click="deleteExercice(exercice)" type="submit" class="btn btn-danger btn-sm">Delete</button>
+			<div class="row">
+				<div class="col-md-5 large-margin-top">
+					<form>
+				  		<div class="form-group">
+							<label>Name</label>
+							<input type="text" class="form-control" ng-model="workout.name">
+				  		</div>
+				  		<div class="form-group">
+							<label>Description</label>
+							<input type="text" class="form-control" ng-model="workout.description">
+				  		</div>
+				  		<div class="form-group">
+							<label>Goal</label>
+							<input type="text" class="form-control" ng-model="workout.goal">
+				  		</div>
+				  		<button ng-click="save()" type="submit" class="custom-button">Create</button>
+					</form>
+				</div>
+				<div class="col-md-1 large-margin-top">
+					<div ng-repeat="exercice in workout.exercices">
+						<div class="exercice-button" ng-class="{'selected-exercice-button': exercice.selected}" ng-click="selectExercice(exercice)">
+								{{$index + 1}}	
+						</div>
+						<div class="vertical-join"></div>
+					</div>
+					<img ng-click="addExercice()" class="size-40x40 hover-cursor-pointer centered-non-block" src="img/svg/add.svg">
+				</div>
+				<div class="col-md-5 large-margin-top">
+					<div ng-repeat="exercice in workout.exercices" ng-show="exercice.selected">
+						<h2>Exercice #{{exercice.number}}</h2>
+						<form>
+					  		<div class="form-group">
+								<label>Exercice</label>
+								<select ng-options="exercice.id as exercice.name for exercice in exercices" class="form-control" ng-model="exercice.exercice_id"></select>
+					  		</div>
+					  		<div class="form-group">
+								<label>Rest</label>
+								<input type="number" class="form-control" ng-model="exercice.rest">
+					  		</div>
+					  		<div class="form-group">
+								<label>Count</label>
+								<input type="number" class="form-control" ng-model="exercice.count" ng-change="changeExerciceCount(exercice)">
+					  		</div>
+					  		<div class="form-group">
+								<label>Weight</label>
+								<input type="number" class="form-control" ng-model="exercice.weight">
+					  		</div>
+					  		<div ng-repeat="rep in exercice.reps track by $index" class="form-group">
+								<label>Reps : {{$index + 1}}</label>
+								<input type="number" class="form-control" ng-model="rep" ng-change="changeRep(exercice, $index, rep)">
+					  		</div>
+						</form>
+						<button ng-click="deleteExercice(exercice)" type="submit" class="custom-button">Delete</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

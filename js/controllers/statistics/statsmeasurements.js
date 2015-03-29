@@ -7,21 +7,29 @@ app.controller('StatsMeasurementsCtrl', [
 
 	function ($scope, $q, UserMeasurements, Measurements, chartService) {
 
-		$scope.init = function(){
-			$scope.measures = Measurements.all();
-			$scope.measurements = UserMeasurements.byUser({user_id : 1});
-			$q.all([$scope.measures.$promise, $scope.measurements.$promise]).then(function(values) {        
-				$scope.selectedMeasure = $scope.measures[0];
-				$scope.plotMeasurements($scope.measures[0]);
-			});
-		};
+		Chart.defaults.global.responsive = true;
+		Chart.defaults.global.showTooltips = false;
 
-		$scope.plotMeasurements = function(measure){
-			Chart.defaults.global.responsive = true;
-			Chart.defaults.global.showTooltips = false;
+		$scope.measures = Measurements.all();
+		$scope.measurements = UserMeasurements.byUser({user_id : 1});
+
+		$q.all([
+				$scope.measures.$promise, 
+				$scope.measurements.$promise
+			]).then(function(values) {        
+				$scope.startDate = moment($scope.measurements[0].date, 'YYYY-MM-DD').toDate();
+				$scope.endDate = moment($scope.measurements[$scope.measurements.length - 1].date, 'YYYY-MM-DD').toDate();
+				$scope.selectedMeasure = $scope.measures[0];
+				$scope.plotMeasurements();
+		});
+
+		$scope.plotMeasurements = function(){
+
+			var measure = $scope.selectedMeasure;
 			var tab = [];
 			for (var i = 0; i < $scope.measurements.length; i++) {
-				if($scope.measurements[i].measurements_id === measure.id){
+				var date = moment($scope.measurements[i].date, 'YYYY-MM-DD').toDate();
+				if($scope.measurements[i].measurements_id === measure.id && date >= $scope.startDate && date <= $scope.endDate){
 					tab.push($scope.measurements[i]);
 				}
 			}
@@ -32,7 +40,7 @@ app.controller('StatsMeasurementsCtrl', [
 				avg = 0, max = 0, min = 1000, std = 0;
 
 			for (var j = 0; j < tab.length; j++) {
-				labels.push(tab[j].date);
+				labels.push(moment(tab[j].date, "YYYY-MM-DD").format("DD-MM-YYYY"));
 				datas[0].push(tab[j].value);
 				avg += +tab[j].value;
 				max = +tab[j].value > max ? +tab[j].value : max;

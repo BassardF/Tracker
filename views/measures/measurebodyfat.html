@@ -1,28 +1,36 @@
-<div class="container-fluid" ng-init="init()">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2 full-height no-padding">
 			<navbar></navbar>
 		</div>
-		<div class="col-md-4">
-			<h3>Current body fat</h3>
-	  		<div class="grey-left-border">
-	  			<div class="small-margin-left"><strong>Percent : </strong>{{bodyFat.percent}}<span class="grey-color">%</span></div>
-	  			<div class="small-margin-left"><strong>Date : </strong>{{bodyFat.date}}</div>
-	  		</div>
-		</div>
-		<div class="col-md-4">
-			<h3>New body fat</h3>
-	  		<form>
-			  <div class="form-group">
-			    <label>Percent</label>
-			    <input type="number" class="form-control" ng-model="newBodyFat.percent">
-			  </div>
-			  <div class="form-group">
-			    <label>Date</label>
-			    <input type="date" class="form-control" ng-model="newBodyFat.date">
-			  </div>
-			  <button ng-click="save()" type="submit" class="btn btn-primary btn-sm">Create</button>
-			</form>
+
+		<div class="col-md-10 overflow">
+			<div class="row">
+				<h1>Record body fat</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<h3>Current body fat</h3>
+			  		<div class="grey-left-border">
+			  			<div class="small-margin-left"><strong>Percent : </strong>{{bodyFat.percent}}<span class="grey-color">%</span></div>
+			  			<div class="small-margin-left"><strong>Date : </strong>{{bodyFat.date}}</div>
+			  		</div>
+				</div>
+				<div class="col-md-6">
+					<h3>New body fat</h3>
+			  		<form>
+					  <div class="form-group">
+					    <label>Percent</label>
+					    <input type="number" class="form-control" ng-model="newBodyFat.percent">
+					  </div>
+					  <div class="form-group">
+					    <label>Date</label>
+					    <input type="date" class="form-control" ng-model="newBodyFat.date">
+					  </div>
+					  <button ng-click="save()" type="submit" class="custom-button">Create</button>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

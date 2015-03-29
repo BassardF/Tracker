@@ -5,11 +5,9 @@ app.controller('ExerciceWorkoutsController', [
 
 	function ($scope, Workout, Exercices) {
 
-		$scope.init = function(){
-			$scope.workout = new Workout();
-			$scope.workout.exercices = [];
-			$scope.exercices = Exercices.all({user_id : 1});
-		};
+		$scope.workout = new Workout();
+		$scope.workout.exercices = [];
+		$scope.exercices = Exercices.all({user_id : 1});
 
 		$scope.save = function(){
 			$scope.workout.users_id = 1;

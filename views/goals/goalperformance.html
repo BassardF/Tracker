@@ -1,59 +1,66 @@
-<div class="container-fluid" ng-init="init()">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2 full-height no-padding">
 			<navbar></navbar>
 		</div>
-		<div class="col-md-4">
-			<form>
-			  <h3>Exercice</h3>
-			  <div class="form-group">
-			    <select class="form-control" 
-			    ng-model="exercice"
-			    ng-options="exercice as exercice.name for exercice in exercices"></select>
-			  </div>
-			  <div ng-show="exercice">
-				<h3>Current Exercice</h3>
-				<div class="grey-left-border">
-		  			<div class="small-margin-left"><strong>Name : </strong>{{exercice.name}}</div>
-		  			<div class="small-margin-left"><strong>Description : </strong>{{exercice.description}}</div>
-		  			<div class="small-margin-left"><strong>Areas : </strong><span ng-repeat="area in exercice.areas">{{area.name}} </span></div>
-		  		</div>
-		  		<h3>Current Goal</h3>
-				<div class="grey-left-border">
-		  			<div class="small-margin-left"><strong>Count : </strong>{{selectedGoal.count}}</div>
-		  			<div class="small-margin-left"><strong>Rest : </strong>{{selectedGoal.rest}}</div>
-		  			<div class="small-margin-left"><strong>Reps : </strong>{{selectedGoal.reps}}</div>
-		  			<div class="small-margin-left"><strong>Weight : </strong>{{selectedGoal.weight}}</div>
-		  			<div class="small-margin-left"><strong>Date : </strong>{{selectedGoal.date}}</div>
-		  		</div>
+		<div class="col-md-10 overflow">
+			<div class="row">
+				<h1>Record performance goal</h1>
 			</div>
-			</form>
-		</div>
-		<div class="col-md-4">
-			<h3>New goal</h3>
-	  		<form>
-			  <div class="form-group">
-			    <label>Count</label>
-			    <input type="number" class="form-control" ng-model="newGoal.count">
-			  </div>
-			  <div class="form-group">
-			    <label>Rest</label>
-			    <input type="number" class="form-control" ng-model="newGoal.rest">
-			  </div>
-			  <div class="form-group">
-			    <label>Weight</label>
-			    <input type="number" class="form-control" ng-model="newGoal.weight">
-			  </div>
-			  <div class="form-group">
-			    <label>Date</label>
-			    <input type="date" class="form-control" ng-model="newGoal.date">
-			  </div>
-			   <div class="form-group" ng-repeat="rep in reps track by $index">
-			    <label>Reps serie {{rep.index}}</label>
-			    <input type="number" class="form-control" ng-model="rep.reps">
-			  </div>
-			  <button ng-click="save()" type="submit" class="btn btn-primary btn-sm">Create</button>
-			</form>
-		</div>
+			<div class="row">
+				<div class="col-md-4">
+					<form>
+					  <h3>Exercice</h3>
+					  <div class="form-group">
+					    <select class="form-control" 
+					    ng-model="exercice"
+					    ng-options="exercice as exercice.name for exercice in exercices"></select>
+					  </div>
+					  <div ng-show="exercice">
+						<h3>Current Exercice</h3>
+						<div class="grey-left-border">
+				  			<div class="small-margin-left"><strong>Name : </strong>{{exercice.name}}</div>
+				  			<div class="small-margin-left"><strong>Description : </strong>{{exercice.description}}</div>
+				  			<div class="small-margin-left"><strong>Areas : </strong><span ng-repeat="area in exercice.areas">{{area.name}} </span></div>
+				  		</div>
+				  		<h3>Current Goal</h3>
+						<div class="grey-left-border">
+				  			<div class="small-margin-left"><strong>Count : </strong>{{selectedGoal.count}}</div>
+				  			<div class="small-margin-left"><strong>Rest : </strong>{{selectedGoal.rest}}</div>
+				  			<div class="small-margin-left"><strong>Reps : </strong>{{selectedGoal.reps}}</div>
+				  			<div class="small-margin-left"><strong>Weight : </strong>{{selectedGoal.weight}}</div>
+				  			<div class="small-margin-left"><strong>Date : </strong>{{selectedGoal.date}}</div>
+				  		</div>
+					</div>
+					</form>
+				</div>
+				<div class="col-md-4">
+					<h3>New goal</h3>
+			  		<form>
+					  <div class="form-group">
+					    <label>Count</label>
+					    <input type="number" class="form-control" ng-model="newGoal.count">
+					  </div>
+					  <div class="form-group">
+					    <label>Rest</label>
+					    <input type="number" class="form-control" ng-model="newGoal.rest">
+					  </div>
+					  <div class="form-group">
+					    <label>Weight</label>
+					    <input type="number" class="form-control" ng-model="newGoal.weight">
+					  </div>
+					  <div class="form-group">
+					    <label>Date</label>
+					    <input type="date" class="form-control" ng-model="newGoal.date">
+					  </div>
+					   <div class="form-group" ng-repeat="rep in reps track by $index">
+					    <label>Reps serie {{rep.index}}</label>
+					    <input type="number" class="form-control" ng-model="rep.reps">
+					  </div>
+					  <button ng-click="save()" type="submit" class="custom-button">Create</button>
+					</form>
+				</div>
+			</div>
+		</div>	
 	</div>
 </div>

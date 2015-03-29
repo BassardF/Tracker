@@ -1,6 +1,6 @@
 app.controller('StatsWeightBFCtrl', [
 	'$scope',
-
+	'$q',
 	'BodyWeight',
 	'BodyWeightGoal',
 	'BodyFat',
@@ -8,48 +8,62 @@ app.controller('StatsWeightBFCtrl', [
 
 	'chartService'
 
-	, function ($scope, BodyWeight, BodyWeightGoal, BodyFat, BodyFatGoal, chartService) {
+	, function ($scope, $q, BodyWeight, BodyWeightGoal, BodyFat, BodyFatGoal, chartService) {
 
-		$scope.init = function(){
-			$scope.premises = 0;
-			$scope.current = 'weight';
-			$scope.boxes = {
-				weight : true,
-				bodyFat : true
-			}
-
-			$scope.bodyWeight = BodyWeight.byUser({user_id : 1}, testPremises);
-			$scope.bodyWeightGoal = BodyWeightGoal.lastByUser({user_id : 1}, testPremises);
-			$scope.bodyFat = BodyFat.byUser({user_id : 1}, testPremises);
-			$scope.bodyFatGoal = BodyFatGoal.lastByUser({user_id : 1}, testPremises);
-		};
-
-		function testPremises(){
-			$scope.premises++;
-			if($scope.premises === 4){
-				$scope.replot();				
-			}
+		$scope.current = 'weight';
+		$scope.boxes = {
+			weight : true,
+			bodyFat : true
 		}
+		$scope.bodyWeight = BodyWeight.byUser({user_id : 1});
+		$scope.bodyWeightGoal = BodyWeightGoal.lastByUser({user_id : 1});
+		$scope.bodyFat = BodyFat.byUser({user_id : 1});
+		$scope.bodyFatGoal = BodyFatGoal.lastByUser({user_id : 1});
 
-		$scope.replot = function(){
+		$q.all([
+			$scope.bodyWeight.$promise,
+			$scope.bodyWeightGoal.$promise,
+			$scope.bodyFat.$promise,
+			$scope.bodyFatGoal.$promise
+		]).then(function(){				
+			$scope.replot(true);
+		});
+
+		$scope.replot = function(reBound){
 			Chart.defaults.global.responsive = true;
 			Chart.defaults.global.showTooltips = false;
 			if($scope.current === 'weight'){
+				if(reBound){
+					$scope.startDate = moment($scope.bodyWeight[0].date, 'YYYY-MM-DD').toDate();
+					$scope.endDate = moment($scope.bodyWeight[$scope.bodyWeight.length - 1].date, 'YYYY-MM-DD').toDate();
+				}
 				plotWeight();
 			} else {
+				if(reBound){
+					$scope.startDate = moment($scope.bodyFat[0].date, 'YYYY-MM-DD').toDate();
+					$scope.endDate = moment($scope.bodyFat[$scope.bodyFat.length - 1].date, 'YYYY-MM-DD').toDate();	
+				}
 				plotBf();
 			}
 		};
 
 		function plotWeight(){
 			var ctx = document.getElementById("chart").getContext("2d"),
+				rec = [],
 				datas = [[], []],
 				labels = [],
 				avg = 0, max = 0, min = 1000, std = 0;
 			
-			for (var i = 0; i < $scope.bodyWeight.length; i++) {
-				var record = $scope.bodyWeight[i];
-				labels.push(record.date);
+			for (var a = 0; a < $scope.bodyWeight.length; a++) {
+				var date = moment($scope.bodyWeight[a].date, 'YYYY-MM-DD').toDate();
+				if(date >= $scope.startDate && date <= $scope.endDate){
+					rec.push($scope.bodyWeight[a]);
+				}
+			}
+
+			for (var i = 0; i < rec.length; i++) {
+				var record = rec[i];
+				labels.push(moment(record.date, 'YYYY-MM-DD').format('DD-MM-YYYY'));
 				datas[0].push($scope.bodyWeightGoal.weight);
 				datas[1].push(record.weight);
 				avg += +record.weight;
@@ -60,12 +74,12 @@ app.controller('StatsWeightBFCtrl', [
 			var data = chartService.getData(labels, datas);
 			var myLineChart = new Chart(ctx).Line(data, {});
 
-			avg /= $scope.bodyWeight.length;
+			avg /= rec.length;
 
-			for (var i = 0; i < $scope.bodyWeight.length; i++) {
-				std += Math.pow(+$scope.bodyWeight[i].weight - avg, 2);
+			for (var i = 0; i < rec.length; i++) {
+				std += Math.pow(+rec[i].weight - avg, 2);
 			}
-			std /= $scope.bodyWeight.length;
+			std /= rec.length;
 
 			$scope.labels = [{
 				name : "Weight",
@@ -83,11 +97,11 @@ app.controller('StatsWeightBFCtrl', [
 				unit : "kg"
 			},{
 				title : "Goal date",
-				data : $scope.bodyWeightGoal.date,
+				data : moment($scope.bodyWeightGoal.date, 'YYYY-MM-DD').format('DD-MM-YYYY'),
 				hr : true
 			},{
 				title : "Data count",
-				data : $scope.bodyWeight.length,
+				data : rec.length,
 				hr : true
 			}, {
 				title : "Average weight",
@@ -112,13 +126,21 @@ app.controller('StatsWeightBFCtrl', [
 
 		function plotBf(){
 			var ctx = document.getElementById("chart").getContext("2d"),
+				rec = [],
 				datas = [[], []],
 				labels = [],
 				avg = 0, max = 0, min = 1000, std = 0;
+
+			for (var a = 0; a < $scope.bodyFat.length; a++) {
+				var date = moment($scope.bodyFat[a].date, 'YYYY-MM-DD').toDate();
+				if(date >= $scope.startDate && date <= $scope.endDate){
+					rec.push($scope.bodyFat[a]);
+				}
+			}
 			
-			for (var i = 0; i < $scope.bodyFat.length; i++) {
-				var record = $scope.bodyFat[i];
-				labels.push(record.date);
+			for (var i = 0; i < rec.length; i++) {
+				var record = rec[i];
+				labels.push(moment(record.date, 'YYYY-MM-DD').format('DD-MM-YYYY'));
 				datas[0].push(record.percent);
 				datas[1].push($scope.bodyFatGoal.percent);
 				avg += +record.percent;
@@ -129,12 +151,12 @@ app.controller('StatsWeightBFCtrl', [
 			var data = chartService.getData(labels, datas);
 			var myLineChart = new Chart(ctx).Line(data, {});
 
-			avg /= $scope.bodyFat.length;
+			avg /= rec.length;
 
-			for (var i = 0; i < $scope.bodyFat.length; i++) {
-				std += Math.pow(+$scope.bodyFat[i].percent - avg, 2);
+			for (var i = 0; i < rec.length; i++) {
+				std += Math.pow(+rec[i].percent - avg, 2);
 			}
-			std /= $scope.bodyFat.length;
+			std /= rec.length;
 
 			$scope.labels = [{
 				name : "Body fat",

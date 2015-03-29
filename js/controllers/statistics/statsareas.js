@@ -7,11 +7,20 @@ app.controller('StatsAreasCtrl', [
 
 	,function ($scope, SchedulesExercices, chartService) {
 
-		$scope.init = function(){
-			Chart.defaults.global.responsive = true;
-			Chart.defaults.global.showTooltips = false;
-			$scope.areas = SchedulesExercices.byUser({user_id : 1}, manageAreas);			
-		};
+		Chart.defaults.global.responsive = true;
+		Chart.defaults.global.showTooltips = false;
+
+		$scope.startDate = moment(new Date()).subtract('1', 'month').toDate();
+		$scope.endDate = new Date();
+		fetchAreas();
+
+		function fetchAreas(){
+			$scope.areas = SchedulesExercices.byUser({
+				user_id : 1,
+				start : moment($scope.startDate).format('YYYY-MM-DD'),
+				end : moment($scope.endDate).format('YYYY-MM-DD')
+			}, manageAreas);
+		}
 
 		function manageAreas(){
 			for (var i = 0; i < $scope.areas.length; i++) {
@@ -23,23 +32,28 @@ app.controller('StatsAreasCtrl', [
 			plot();
 		}
 
+		$scope.fetch = function(){
+			fetchAreas();
+		};
+
 		$scope.replot = function(){
 			plot();
 		};
 
 		function plot(){
+			var rec = $scope.areas;
 			var ctx = document.getElementById("chart").getContext("2d"),
 				datas = [[]],
 				labels = [],
 				areaCount = 0, avg = 0, std = 0, min = 1000, max = 0, count = 0;
 
-			for (var i = 0; i < $scope.areas.length; i++) {
-				if($scope.areas[i].selected){
+			for (var i = 0; i < rec.length; i++) {
+				if(rec[i].selected){
 					count++;
-					areaCount+= $scope.areas[i].count;
-					var trainingCount = $scope.areas[i].count;
+					areaCount+= rec[i].count;
+					var trainingCount = rec[i].count;
 					avg += trainingCount;
-					labels.push($scope.areas[i].name);
+					labels.push(rec[i].name);
 					datas[0].push(trainingCount);
 					max = max > trainingCount ? max : trainingCount;
 					min = min < trainingCount ? min : trainingCount;
@@ -48,10 +62,9 @@ app.controller('StatsAreasCtrl', [
 
 			avg /= count;
 
-			
-			for (var j = 0; j < $scope.areas.length; j++) {
-				if($scope.areas[j].selected){
-					var trainingCount = $scope.areas[j].count;
+			for (var j = 0; j < rec.length; j++) {
+				if(rec[j].selected){
+					var trainingCount = rec[j].count;
 					std += Math.pow(trainingCount - avg, 2);
 				}
 			}

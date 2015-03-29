@@ -51,12 +51,6 @@ app.controller('StatsPerformanceCtrl', [
 			var rec = [];
 			for (var a = 0; a < $scope.records.length; a++) {
 				var date = moment($scope.records[a].date, 'YYYY-MM-DD').toDate();
-				console.log(date);
-				console.log($scope.startDate);
-				console.log($scope.endDate);
-				console.log(date >= $scope.startDate);
-				console.log(date <= $scope.endDate);
-				console.log('---------------');
 				if(date >= $scope.startDate && date <= $scope.endDate){
 					rec.push($scope.records[a]);
 				}
@@ -162,7 +156,7 @@ app.controller('StatsPerformanceCtrl', [
 				var record_ = rec[j];
 				varWeight = Math.pow(record.weight - (avgWeight/rec.length), 2);
 				varSeries = Math.pow(record.count - (avgSeries/rec.length), 2);
-				varReps = Math.pow(getAvgReps(record.reps) - (avgReps/$scope.endDate.length), 2);
+				varReps = Math.pow(getAvgReps(record.reps) - (avgReps/rec.length), 2);
 			}
 
 			$scope.stats = {

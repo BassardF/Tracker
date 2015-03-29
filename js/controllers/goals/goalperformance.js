@@ -6,14 +6,13 @@ app.controller('GoalPerformanceController', [
 
 	function ($scope, Exercices, PerformanceGoal) {
 
-		$scope.init = function(){
-			$scope.newGoal = new PerformanceGoal();
-			$scope.newGoal.count = 1;
-			$scope.performanceGoal = PerformanceGoal.byUser({user_id : 1});
-			$scope.exercices = Exercices.all({user_id : 1}, function(){
-				$scope.exercice = $scope.exercices[0];
-			});
-		};
+		$scope.newGoal = new PerformanceGoal();
+		$scope.newGoal.count = 1;
+		$scope.newGoal.date = new Date();
+		$scope.performanceGoal = PerformanceGoal.byUser({user_id : 1});
+		$scope.exercices = Exercices.all({user_id : 1}, function(){
+			$scope.exercice = $scope.exercices[0];
+		});
 
 		$scope.$watch('exercice', function(newValue, oldValue) {
 			if(newValue){

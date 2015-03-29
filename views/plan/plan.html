@@ -1,93 +1,94 @@
-<div class="container-fluid" ng-init="init()">
+<div class="container-fluid">
   <div class="row">
-	<div class="col-md-2 full-height no-padding">
-		<navbar></navbar>
-	</div>
-
-    <div class="centered-text">
-	  <div class="col-md-10">
-	  <div class="row">	  
-      <div class="centered-non-block">
-        <span class="small-margin-right">-</span>
-        <span>{{year}}</span>
-        <span class="small-margin-left">+</span>
-      </div>
-
-      <span ng-repeat="month in months track by $index">
-        <span ng-if="$index!==0"> - </span>
-        <span class="selectable">{{month}}</span>
-      </span>
-    </div>	  
-    </div>
-
-	
-  	<div class="col-md-1">
-      <div class="row">
-    		<h3>Workouts</h3>
-        <input type="text" class="form-control small-margin-bottom" ng-model="workoutFilter" placeholder="Filter">
-        <div id="source-{{workout.id}}" class="workout-box hover-cursor-draggable" ng-repeat="workout in workouts | filter: workoutFilter" drag-source="true">
-          {{workout.name}}
-        </div>
-      </div>
+  	<div class="col-md-2 full-height no-padding">
+  		<navbar></navbar>
   	</div>
 
-    <div class="col-md-1">
-      <h3>Mon.</h3>
-      <div class="fake-day-box" ng-if="!isDayInFirstLine(1)"></div>
-      <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===1" drop-target="true" on-drop="drop(dragEl, dropEl)">
-        {{day.format('D')}}
-        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
+    <div class="overflow">
+  	  <div class="col-md-12">
+        <div class="row">
+          <h1>Plan your workouts</h1>
+        </div>
+    	  <div class="row centered-text small-margin-top">
+          <div class="centered-non-block">
+            <span class="small-margin-right">-</span>
+            <span>{{year}}</span>
+            <span class="small-margin-left">+</span>
+          </div>
+
+          <span ng-repeat="month in months track by $index">
+            <span ng-if="$index!==0"> - </span>
+            <span class="selectable" ng-class="month.selected">{{month.date}}</span>
+          </span>
+        </div>	  
+      </div>
+
+    	<div class="col-md-2">
+        <div class="row">
+      		<h3>Workouts</h3>
+          <input type="text" class="form-control small-margin-bottom" ng-model="workoutFilter" placeholder="Filter">
+          <div id="source-{{workout.id}}" class="workout-box hover-cursor-draggable" ng-repeat="workout in workouts | filter: workoutFilter" drag-source="true">
+            {{workout.name}}
+          </div>
+        </div>
+    	</div>
+      <div class="col-md-1">
+        <h3>Mon.</h3>
+        <div class="fake-day-box" ng-if="!isDayInFirstLine(1)"></div>
+        <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===1" drop-target="true" on-drop="drop(dragEl, dropEl)">
+          {{day.format('D')}}
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <h3>Tues.</h3>
+        <div class="fake-day-box" ng-if="!isDayInFirstLine(2)"></div>
+        <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===2" drop-target="true" on-drop="drop(dragEl, dropEl)">
+          {{day.format('D')}}
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <h3>Wed.</h3>
+        <div class="fake-day-box" ng-if="!isDayInFirstLine(3)"></div>
+        <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===3" drop-target="true" on-drop="drop(dragEl, dropEl)">
+          {{day.format('D')}}
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <h3>Thur.</h3>
+        <div class="fake-day-box" ng-if="!isDayInFirstLine(4)"></div>
+        <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===4" drop-target="true" on-drop="drop(dragEl, dropEl)">
+          {{day.format('D')}}
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <h3>Fri.</h3>
+        <div class="fake-day-box" ng-if="!isDayInFirstLine(5)"></div>
+        <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===5" drop-target="true" on-drop="drop(dragEl, dropEl)">
+          {{day.format('D')}}
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <h3>Sat.</h3>
+        <div class="fake-day-box" ng-if="!isDayInFirstLine(6)"></div>
+        <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===6" drop-target="true" on-drop="drop(dragEl, dropEl)">
+          {{day.format('D')}}
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <h3>Sun.</h3>
+        <div class="fake-day-box" ng-if="!isDayInFirstLine(7)"></div>
+        <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===7" drop-target="true" on-drop="drop(dragEl, dropEl)">
+          {{day.format('D')}}
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+        </div>
       </div>
     </div>
-    <div class="col-md-1">
-      <h3>Tues.</h3>
-      <div class="fake-day-box" ng-if="!isDayInFirstLine(2)"></div>
-      <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===2" drop-target="true" on-drop="drop(dragEl, dropEl)">
-        {{day.format('D')}}
-        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
-      </div>
-    </div>
-    <div class="col-md-1">
-      <h3>Wed.</h3>
-      <div class="fake-day-box" ng-if="!isDayInFirstLine(3)"></div>
-      <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===3" drop-target="true" on-drop="drop(dragEl, dropEl)">
-        {{day.format('D')}}
-        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
-      </div>
-    </div>
-    <div class="col-md-1">
-      <h3>Thur.</h3>
-      <div class="fake-day-box" ng-if="!isDayInFirstLine(4)"></div>
-      <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===4" drop-target="true" on-drop="drop(dragEl, dropEl)">
-        {{day.format('D')}}
-        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
-      </div>
-    </div>
-    <div class="col-md-1">
-      <h3>Fri.</h3>
-      <div class="fake-day-box" ng-if="!isDayInFirstLine(5)"></div>
-      <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===5" drop-target="true" on-drop="drop(dragEl, dropEl)">
-        {{day.format('D')}}
-        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
-      </div>
-    </div>
-    <div class="col-md-1">
-      <h3>Sat.</h3>
-      <div class="fake-day-box" ng-if="!isDayInFirstLine(6)"></div>
-      <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===6" drop-target="true" on-drop="drop(dragEl, dropEl)">
-        {{day.format('D')}}
-        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
-      </div>
-    </div>
-    <div class="col-md-1">
-      <h3>Sun.</h3>
-      <div class="fake-day-box" ng-if="!isDayInFirstLine(7)"></div>
-      <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===7" drop-target="true" on-drop="drop(dragEl, dropEl)">
-        {{day.format('D')}}
-        <div ng-repeat="schedule in day.schedules">{{schedule.name}}</div>
-      </div>
-    </div>
-	</div>
-	</div>	
+
   </div>
 </div>

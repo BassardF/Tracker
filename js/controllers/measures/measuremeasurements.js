@@ -5,10 +5,8 @@ app.controller('MeasureMeasurementsController', [
 
 	function ($scope, Measurements, UserMeasurements) {
 
-		$scope.init = function(){
-			$scope.measurements = Measurements.all(draw);
-			$scope.newMeasure = new UserMeasurements();
-		};
+		$scope.measurements = Measurements.all(draw);
+		$scope.newMeasure = new UserMeasurements();
 
 		function draw(){
 			var height = 400,
@@ -46,6 +44,7 @@ app.controller('MeasureMeasurementsController', [
 		}
 
 		$scope.changeMeasurements = function(measurement){
+			$scope.newMeasure.date = new Date();
 			for (var i = 0; i < $scope.tabLine.length; i++) {
 				var tabLine = $scope.tabLine[i];
 				if(tabLine.measurement.id === measurement.id){

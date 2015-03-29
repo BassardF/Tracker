@@ -6,12 +6,10 @@ app.controller('ExerciceExercicesController', [
 
 	function ($scope, Areas, Exercices) {
 
-		$scope.init = function(){
-			$scope.exercice = new Exercices();
-			$scope.loaded = 0;
-			$scope.areas = Areas.all(setStyles);
-			imgToSvg();
-		};
+		$scope.exercice = new Exercices();
+		$scope.loaded = 0;
+		$scope.areas = Areas.all(setStyles);
+		imgToSvg();
 
 		$scope.selectArea = function(area){
 			area.selected = !area.selected;

@@ -1,49 +1,57 @@
-<div class="container-fluid" ng-init="init()">
+<div class="container-fluid">
   <div class="row">
 	<div class="col-md-2 full-height no-padding">
 		<navbar></navbar>
 	</div>
-  	<div class="col-md-4">
-	  	<table class="table table-condensed">
-	  		<h3>Current body fat</h3>
-	  		<div class="grey-left-border">
-	  			<div class="small-margin-left"><strong>Percent : </strong>{{currentBodyFat.percent}}<span class="grey-color">%</span></div>
-	  			<div class="small-margin-left"><strong>Date : </strong>{{currentBodyFat.date}}</div>
-	  		</div>
-	  		<h3>Previous goals</h3>
-	  		<thead>
-	  			<tr>
-	  				<th><strong>#</strong></th>
-	  				<th><strong>Precent</strong></th>
-	  				<th><strong>Date</strong></th>
-	  				<th><strong>Reached</strong></th>
-	  				<th><strong>Delete</strong></th>
-	  			</tr>
-	  		</thead>
-	  		<tbody>
-	  			<tr ng-repeat="goal in bodyFatGoals">
-	  				<td>{{$index+1}}</td>
-	  				<td>{{goal.percent}}%</td>
-	  				<td>{{goal.date}}</td>
-	  				<td>{{goal.reached}}</td>
-	  				<td><button ng-click="delete(goal)" type="submit" class="btn btn-danger btn-xs">Delete</button></td>
-	  			</tr>
-	  		</tbody>
-		</table>
-  	</div>
-  	<div class="col-md-4">
-  		<h3>New goal</h3>
-  		<form>
-		  <div class="form-group">
-		    <label>Percent</label>
-		    <input type="number" class="form-control" ng-model="goal.percent">
-		  </div>
-		  <div class="form-group">
-		    <label>Date</label>
-		    <input type="date" class="form-control" ng-model="goal.date">
-		  </div>
-		  <button ng-click="save()" type="submit" class="btn btn-primary btn-sm">Create</button>
-		</form>
-  	</div>
+
+	<div class="col-md-10 overflow">
+		<div class="row">
+			<h1>Record body fat goal</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+			  	<table class="table table-condensed">
+			  		<h3>Current body fat</h3>
+			  		<div class="grey-left-border">
+			  			<div class="small-margin-left"><strong>Percent : </strong>{{currentBodyFat.percent}}<span class="grey-color">%</span></div>
+			  			<div class="small-margin-left"><strong>Date : </strong>{{currentBodyFat.date}}</div>
+			  		</div>
+			  		<h3>Previous goals</h3>
+			  		<thead>
+			  			<tr>
+			  				<th><strong>#</strong></th>
+			  				<th><strong>Precent</strong></th>
+			  				<th><strong>Date</strong></th>
+			  				<th><strong>Reached</strong></th>
+			  				<th></th>
+			  			</tr>
+			  		</thead>
+			  		<tbody>
+			  			<tr ng-repeat="goal in bodyFatGoals">
+			  				<td>{{$index+1}}</td>
+			  				<td>{{goal.percent}}%</td>
+			  				<td>{{goal.date}}</td>
+			  				<td>{{goal.reached}}</td>
+			  				<td><button ng-click="delete(goal)" type="submit" class="custom-button-s">Delete</button></td>
+			  			</tr>
+			  		</tbody>
+				</table>
+		  	</div>
+		  	<div class="col-md-6">
+		  		<h3>New goal</h3>
+		  		<form>
+				  <div class="form-group">
+				    <label>Percent</label>
+				    <input type="number" class="form-control" ng-model="goal.percent">
+				  </div>
+				  <div class="form-group">
+				    <label>Date</label>
+				    <input type="date" class="form-control" ng-model="goal.date">
+				  </div>
+				  <button ng-click="save()" type="submit" class="custom-button">Create</button>
+				</form>
+		  	</div>
+		</div>
+	</div>
   </div>
 </div>

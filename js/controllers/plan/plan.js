@@ -1,30 +1,26 @@
 app.controller('PlanController', [
 	'$scope',
+	'$q',
 	'Workout',
 	'Schedules',
 
-	function ($scope, Workout, Schedules) {
+	function ($scope, $q, Workout, Schedules) {
 
-		$scope.init = function(){
-			$scope.callCount = 0;
-			$scope.days = [];
-			$scope.months = [];
+		$scope.days = [];
+		$scope.months = [];
 
-			$scope.workouts = Workout.all(callbacks);
-			$scope.schedules = Schedules.all(callbacks);
+		$scope.workouts = Workout.all();
+		$scope.schedules = Schedules.all();
 
-			$scope.today = moment(new Date());
-			$scope.year = $scope.today.year();
+		$scope.today = moment(new Date());
+		$scope.year = $scope.today.year();
 
-			
-		};
-
-		function callbacks(){
-			$scope.callCount++;
-			if($scope.callCount === 2){
-				craft();
-			}
-		}
+		$q.all([
+			$scope.workouts.$promise,
+			$scope.schedules.$promise
+		]).then(function(){
+			craft();
+		});
 
 		function craft(){
 			var withinFirstWeek = true;
@@ -44,8 +40,12 @@ app.controller('PlanController', [
 			}
 
 			for (var k = 0; k < 12; k++) {
-				$scope.months.push(moment().month(k).format('MMMM'));
+				$scope.months.push({
+					date : moment().month(k).format('MMMM'),
+					selected : $scope.today.isSame(moment().month(k), 'month') ? 'selected-month' : ''
+				});
 			}
+			console.log($scope.months);
 		}
 
 		$scope.isDayInFirstLine = function(isoDay){

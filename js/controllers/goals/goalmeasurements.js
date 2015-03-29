@@ -6,11 +6,10 @@ app.controller('GoalMeasurementsController', [
 
 	function ($scope, Measurements, MeasurementsGoal) {
 
-		$scope.init = function(){
-			$scope.measurements = Measurements.all(draw);
-			$scope.measurementsGoals = MeasurementsGoal.byUser({user_id : 1});
-			$scope.newGoal = new MeasurementsGoal();
-		};
+		$scope.measurements = Measurements.all(draw);
+		$scope.measurementsGoals = MeasurementsGoal.byUser({user_id : 1});
+		$scope.newGoal = new MeasurementsGoal();
+		$scope.newGoal.date = new Date();
 
 		function draw(){
 			var height = 400,
