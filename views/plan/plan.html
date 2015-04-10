@@ -1,5 +1,6 @@
 <div class="container-fluid">
   <div class="row">
+    
   	<div class="col-md-2 full-height no-padding">
   		<navbar></navbar>
   	</div>
@@ -11,14 +12,14 @@
         </div>
     	  <div class="row centered-text small-margin-top">
           <div class="centered-non-block">
-            <span class="small-margin-right">-</span>
+            <span class="small-margin-right" ng-click="changeYear('-')">-</span>
             <span>{{year}}</span>
-            <span class="small-margin-left">+</span>
+            <span class="small-margin-left" ng-click="changeYear('+')">+</span>
           </div>
 
           <span ng-repeat="month in months track by $index">
             <span ng-if="$index!==0"> - </span>
-            <span class="selectable" ng-class="month.selected">{{month.date}}</span>
+            <span class="selectable" ng-class="month.selected" ng-click="selectMonth(month)">{{month.date}}</span>
           </span>
         </div>	  
       </div>
@@ -32,60 +33,60 @@
           </div>
         </div>
     	</div>
-      <div class="col-md-1">
+      <div class="col-md-1 small-padding-box">
         <h3>Mon.</h3>
         <div class="fake-day-box" ng-if="!isDayInFirstLine(1)"></div>
         <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===1" drop-target="true" on-drop="drop(dragEl, dropEl)">
-          {{day.format('D')}}
-          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+          <span class="day-span" ng-class="{'today-day-span' : day.today}">{{day.format('D')}}</span>
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}} <span class='remove-schedule' ng-click="removeSchedule(schedule)">x</span></div>
         </div>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 small-padding-box">
         <h3>Tues.</h3>
         <div class="fake-day-box" ng-if="!isDayInFirstLine(2)"></div>
         <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===2" drop-target="true" on-drop="drop(dragEl, dropEl)">
-          {{day.format('D')}}
-          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+          <span class="day-span" ng-class="{'today-day-span' : day.today}">{{day.format('D')}}</span>
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}} <span class='remove-schedule' ng-click="removeSchedule(schedule)">x</span></div>
         </div>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 small-padding-box">
         <h3>Wed.</h3>
         <div class="fake-day-box" ng-if="!isDayInFirstLine(3)"></div>
         <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===3" drop-target="true" on-drop="drop(dragEl, dropEl)">
-          {{day.format('D')}}
-          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+          <span class="day-span" ng-class="{'today-day-span' : day.today}">{{day.format('D')}}</span>
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}} <span class='remove-schedule' ng-click="removeSchedule(schedule)">x</span></div>
         </div>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 small-padding-box">
         <h3>Thur.</h3>
         <div class="fake-day-box" ng-if="!isDayInFirstLine(4)"></div>
         <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===4" drop-target="true" on-drop="drop(dragEl, dropEl)">
-          {{day.format('D')}}
-          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+          <span class="day-span" ng-class="{'today-day-span' : day.today}">{{day.format('D')}}</span>
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}} <span class='remove-schedule' ng-click="removeSchedule(schedule)">x</span></div>
         </div>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 small-padding-box">
         <h3>Fri.</h3>
         <div class="fake-day-box" ng-if="!isDayInFirstLine(5)"></div>
         <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===5" drop-target="true" on-drop="drop(dragEl, dropEl)">
-          {{day.format('D')}}
-          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+          <span class="day-span" ng-class="{'today-day-span' : day.today}">{{day.format('D')}}</span>
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}} <span class='remove-schedule' ng-click="removeSchedule(schedule)">x</span></div>
         </div>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 small-padding-box">
         <h3>Sat.</h3>
         <div class="fake-day-box" ng-if="!isDayInFirstLine(6)"></div>
         <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===6" drop-target="true" on-drop="drop(dragEl, dropEl)">
-          {{day.format('D')}}
-          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+          <span class="day-span" ng-class="{'today-day-span' : day.today}">{{day.format('D')}}</span>
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}} <span class='remove-schedule' ng-click="removeSchedule(schedule)">x</span></div>
         </div>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 small-padding-box">
         <h3>Sun.</h3>
         <div class="fake-day-box" ng-if="!isDayInFirstLine(7)"></div>
         <div id="{{day.customId}}" class="day-box" ng-repeat="day in days" ng-if="day.isoWeekday()===7" drop-target="true" on-drop="drop(dragEl, dropEl)">
-          {{day.format('D')}}
-          <div ng-repeat="schedule in day.schedules">- {{schedule.name}}</div>
+          <span class="day-span" ng-class="{'today-day-span' : day.today}">{{day.format('D')}}</span>
+          <div ng-repeat="schedule in day.schedules">- {{schedule.name}} <span class='remove-schedule' ng-click="removeSchedule(schedule)">x</span></div>
         </div>
       </div>
     </div>

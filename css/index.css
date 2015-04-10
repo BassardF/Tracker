@@ -1,6 +1,31 @@
 @font-face {
-    font-family: mainFont;
-    src: url(../fonts/raleway/Raleway-Medium.ttf);
+    font-family: 'font-regular';
+    src: url(../fonts/Titillium/Titillium-Regular.otf);
+}
+
+@font-face {
+    font-family: 'font-black';
+    src: url(../fonts/Titillium/Titillium-Black.otf);
+}
+
+@font-face {
+    font-family: 'font-bold';
+    src: url(../fonts/Titillium/Titillium-Bold.otf);
+}
+
+@font-face {
+    font-family: 'font-light';
+    src: url(../fonts/Titillium/Titillium-Light.otf);
+}
+
+@font-face {
+    font-family: 'font-semi-bold';
+    src: url(../fonts/Titillium/Titillium-Semibold.otf);
+}
+
+@font-face {
+    font-family: 'font-thin';
+    src: url(../fonts/Titillium/Titillium-Thin.otf);
 }
 
 html{
@@ -8,7 +33,7 @@ html{
 }
 
 body{
-    font-family: mainFont;
+    font-family: 'font-regular';
     font-size: 12px;
 	height : 100%;
 }
@@ -19,7 +44,7 @@ hr{
 }
 
 h1{
-	border-bottom: solid black 2px;
+	font-family: 'font-semi-bold';
 	padding: 5px;
 	margin-bottom: 15px;
 	display: inline-block;
@@ -182,6 +207,64 @@ button:focus {
 	height : 100%;
 }
 
+/* Home */
+
+.home-button{
+	font-family: 'font-semi-bold';
+	border: solid 3px #333;
+	border-radius: 50px;
+	padding: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.home-button > div{
+	display: inline-block;
+}
+
+.home-button img{
+	vertical-align: baseline;
+	height: 30px;
+	width: 30px;
+	margin-right: 10px;
+}
+
+.home-label-detail{
+	color: lightgrey;
+	font-size: 10px;
+}
+
+.home-button-disabled{
+	opacity: 0.4;
+}
+
+.home-button-active:hover{
+	cursor: pointer;
+}
+
+.home-page hr{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.home-page p {
+	font-size: 17px;
+}
+
+.home-xplain{
+	font-size: 14px;
+}
+
+.home-xplain-img{
+	height: 50px;
+	width: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+}
+
 /* Navbar */
 
 .nav, .nav > div{
@@ -276,12 +359,12 @@ button:focus {
 }
 
 .svg .selectable_area:hover{
-	fill : red;
+	fill : #E74C3C;
 	cursor: pointer;
 }
 
 .svg .selected_area{
-	fill : red;
+	fill : #E74C3C;
 }
 
 /* Exercice workout */
@@ -328,7 +411,6 @@ button:focus {
 
 .workout-box{
 	padding: 5px;
-	border-bottom: solid 1px #34495E;
 	border-left: solid 3px #34495E;
 	margin-top: 5px;
 }
@@ -341,13 +423,47 @@ button:focus {
 	border: solid 1px #eee;
 	padding: 5px;
 	height: 100px;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
+}
+
+.day-span{
+	color: white;
+	background-color: #2C3E50;
+	border-radius: 50px;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	display: block;
+	padding-top: 3px;
+	margin-bottom: 5px;
+}
+
+.remove-schedule{
+	width: 17px;
+	height: 17px;
+	text-align: center;
+	display: inline-block;
+	opacity: 0.2;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.remove-schedule:hover{
+	opacity: 1;
+	cursor: pointer;
+	color: white;
+	background-color: #2C3E50;
+	border-radius: 50px;
+}
+
+.today-day-span{
+	background-color: #E74C3C;
 }
 
 .fake-day-box{
 	padding: 5px;
 	height: 102px;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
 }
 
 .drag-over{
@@ -359,11 +475,15 @@ button:focus {
 	text-decoration: underline;
 }
 
+.small-padding-box{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
 /* Track */
 
 .track-box{
 	padding: 5px;
-	border-bottom: solid 1px #34495E;
 	border-left: solid 3px #34495E;
 	margin-top: 5px;
 }

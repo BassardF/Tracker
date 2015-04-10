@@ -113,7 +113,8 @@ app.factory('Areas', ['$resource', function($resource) {
 app.factory('Workout', ['$resource', function($resource) {
 
 	return $resource('http://fake.co:3000/workouts/:id', {id : '@id'}, {
-		all: {method: "GET", isArray: true, url: "http://fake.co:3000/workouts"}
+		all: {method: "GET", isArray: true, url: "http://fake.co:3000/workouts"},
+		byUser: {method: "GET", isArray: true, url: "http://fake.co:3000/workouts/users/:user_id"}
 	});
 
 }]);

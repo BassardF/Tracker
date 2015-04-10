@@ -1,63 +1,78 @@
 <div class="container-fluid">
   <div class="row">
+
 	<div class="col-md-2 full-height no-padding">
 		<navbar></navbar>
 	</div>
-  	<div class="col-md-2">
-  		<h3>Upcoming Workouts</h3>
-  		<div>
-			<div class="small-padding-left track-box" ng-repeat="schedule in schedules" ng-click="selectSchedule(schedule)">
-				{{schedule.name}} {{schedule.date}} <span>{{schedule.span}}</span>
-			</div>
-  		</div>
-  	</div>
 
-  	<div class="col-md-1" ng-show="selectedSchedule">
-  		<div ng-repeat="schedulesExercice in schedulesExercices">
-  			<div class="vertical-join" ng-if="$index !== 0"></div>
-			<div class="exercice-button" ng-class="{'selected-exercice-button': schedulesExercice == selectedScheduleExercice}" ng-click="selectScheduleExercice(schedulesExercice)">
-				{{$index + 1}}
-			</div>
-		</div>
-  	</div>
 
-	<div class="col-md-5" ng-show="selectedSchedule">
-		<div>
-			<label><strong>Name :</strong> {{selectedSchedule.name}}</label>
+	<div class="col-md-10 overflow">
+		<div class="row">
+			<h1>Track your workouts</h1>
 		</div>
-		<div>
-			<label><strong>Description :</strong> {{selectedSchedule.description}}</label>
-		</div>
-		<div>
-			<label><strong>Goal :</strong> {{selectedSchedule.goal}}</label>
-		</div>
-		<div ng-repeat="schedulesExercice in schedulesExercices" ng-show="schedulesExercice == selectedScheduleExercice">
-			<h2>Exercice #{{$index + 1}}</h2>
-			<form>
-		  		<div class="form-group">
-					<label>Exercice</label>
-					<select ng-options="exercice.id as exercice.name for exercice in exercices" class="form-control" ng-model="schedulesExercice.exercices_id"></select>
+		<div class="row">
+
+			<div class="col-md-4">
+		  		<h3>Upcoming Workouts</h3>
+		  		<div>
+					<div class="small-padding-left track-box" ng-repeat="schedule in schedules" ng-click="selectSchedule(schedule)">
+						{{schedule.name}} {{schedule.date}} <span>{{schedule.span}}</span>
+					</div>
 		  		</div>
-		  		<div class="form-group">
-					<label>Rest</label>
-					<input type="number" class="form-control" ng-model="schedulesExercice.rest">
-		  		</div>
-		  		<div class="form-group">
-					<label>Count</label>
-					<input type="number" class="form-control" ng-model="schedulesExercice.count" ng-change="changeExerciceCount(schedulesExercice)">
-		  		</div>
-		  		<div class="form-group">
-					<label>Weight</label>
-					<input type="number" class="form-control" ng-model="schedulesExercice.weight">
-		  		</div>
-		  		<div ng-repeat="rep in schedulesExercice.reps track by $index" class="form-group">
-					<label>Reps : {{$index + 1}}</label>
-					<input type="number" class="form-control" ng-model="rep" ng-change="changeRep(schedulesExercice, $index, rep)">
-		  		</div>
-			</form>
-			<button ng-click="updateExercice(schedulesExercice)" type="submit" class="btn btn-default btn-sm">Update</button>
+		  	</div>
+
+		  	<div class="col-md-1 col-md-offset-1" ng-show="selectedSchedule">
+		  		<div ng-repeat="schedulesExercice in schedulesExercices">
+		  			<div class="vertical-join" ng-if="$index !== 0"></div>
+					<div class="exercice-button" ng-class="{'selected-exercice-button': schedulesExercice == selectedScheduleExercice}" ng-click="selectScheduleExercice(schedulesExercice)">
+						{{$index + 1}}
+					</div>
+				</div>
+		  	</div>
+
+			<div class="col-md-5" ng-show="selectedSchedule">
+				<div>
+					<label>{{selectedSchedule.name}}</label>
+				</div>
+				<div>
+					<label>{{selectedSchedule.description}}</label>
+				</div>
+				<div>
+					<label>{{selectedSchedule.goal}}</label>
+				</div>
+				<div ng-repeat="schedulesExercice in schedulesExercices" ng-show="schedulesExercice == selectedScheduleExercice">
+					<h2>Exercice #{{$index + 1}}</h2>
+					<form>
+				  		<div class="form-group">
+							<label>Exercice</label>
+							<select ng-options="exercice.id as exercice.name for exercice in exercices" class="form-control" ng-model="schedulesExercice.exercices_id"></select>
+				  		</div>
+				  		<div class="form-group">
+							<label>Rest</label>
+							<input type="number" class="form-control" ng-model="schedulesExercice.rest">
+				  		</div>
+				  		<div class="form-group">
+							<label>Count</label>
+							<input type="number" class="form-control" ng-model="schedulesExercice.count" ng-change="changeExerciceCount(schedulesExercice)">
+				  		</div>
+				  		<div class="form-group">
+							<label>Weight</label>
+							<input type="number" class="form-control" ng-model="schedulesExercice.weight">
+				  		</div>
+				  		<div ng-repeat="rep in schedulesExercice.reps track by $index" class="form-group">
+							<label>Reps : {{$index + 1}}</label>
+							<input type="number" class="form-control" ng-model="rep" ng-change="changeRep(schedulesExercice, $index, rep)">
+				  		</div>
+					</form>
+					<button ng-click="updateExercice(schedulesExercice)" type="submit" class="custom-button">Update</button>
+				</div>
+			</div>
+
 		</div>
 	</div>
+
+
+  	
 
   </div>
 </div>
